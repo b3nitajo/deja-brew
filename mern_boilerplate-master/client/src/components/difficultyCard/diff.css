@@ -1,9 +1,14 @@
+p {
+    font-size: 30px;
+    text-align: center;
+}
+
 .diffCard{
     width: 200px;
     height: 200px;
+    
 }
 
-p{
-    font-size: 30px;
-    text-align: center;
+.teal {
+    background-color: #644807 !important;
 }
