@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button } from 'react-materialize';
+import 'components/TimerButton/timer.css'
 
 
 
 function button(){
     return(
         <div>
-<Button waves="light" style={{marginRight: '5px'}}>
-button
+<Button className="timerButton" waves="light" style={{marginRight: '5px'}}>
+Set Timer!
 </Button>
 </div>
 
