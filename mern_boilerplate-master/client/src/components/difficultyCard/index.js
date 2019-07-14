@@ -1,32 +1,33 @@
 import React from 'react';
-import { Row, Col, CardPanel, span } from 'react-materialize';
+import { Row, Col, CardPanel, Container } from 'react-materialize';
 
 function diffCard(){
     return(
         <React.Fragment>
+            <Container>
         <Row>
-<Col m={6} s={12}>
+<Col m={3} s={12}>
 <CardPanel className="teal">
 <span className="white-text">
 Easy
 </span>
 </CardPanel>
 </Col>
-</Row>
 
 
-<Row>
-<Col m={6} s={12}>
+
+
+<Col m={3} s={12}>
 <CardPanel className="teal">
 <span className="white-text">
 Meduim
 </span>
 </CardPanel>
 </Col>
-</Row>
 
-<Row>
-<Col m={6} s={12}>
+
+
+<Col m={3} s={12}>
 <CardPanel className="teal">
 <span className="white-text">
 Hard
@@ -34,7 +35,9 @@ Hard
 </CardPanel>
 </Col>
 </Row>
+</Container>
 </React.Fragment>
+
     )
 }
 
