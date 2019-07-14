@@ -1,15 +1,16 @@
 import React from 'react';
 import { Row, Col, CardPanel, Container } from 'react-materialize';
+import 'components/difficultyCard/diff.css'
 
 function diffCard(){
     return(
         <React.Fragment>
             <Container>
         <Row>
-<Col m={3} s={12}>
+<Col className="diffCard" m={3} s={12}>
 <CardPanel className="teal">
 <span className="white-text">
-Easy
+<p>Easy</p>
 </span>
 </CardPanel>
 </Col>
@@ -17,20 +18,20 @@ Easy
 
 
 
-<Col m={3} s={12}>
+<Col className="diffCard" m={3} s={12}>
 <CardPanel className="teal">
 <span className="white-text">
-Meduim
+<p>Medium</p>
 </span>
 </CardPanel>
 </Col>
 
 
 
-<Col m={3} s={12}>
+<Col className="diffCard" m={3} s={12}>
 <CardPanel className="teal">
 <span className="white-text">
-Hard
+<p>Hard</p>
 </span>
 </CardPanel>
 </Col>
