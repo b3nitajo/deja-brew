@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const server = app.listen(PORT, () => {
   // eslint-disable-next-line
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+  console.log(`🌎 ==> API1 server now on port ${PORT}!`);
 });
 
 // Dynamically force schema refresh only for 'test'
@@ -50,7 +50,7 @@ db.sequelize
   .authenticate()
   .then(() => {
     db.sequelize.sync({ force: FORCE_SCHEMA }).then(() => {
-      console.log(`🌎 ==> API server now on port ${PORT}!`); // eslint-disable-line no-console
+      console.log(`🌎 ==> API2 server now on port ${PORT}!`); // eslint-disable-line no-console
       app.emit('appStarted');
     });
   })
