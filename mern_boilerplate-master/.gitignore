@@ -1,3 +1,6 @@
+#env for configs
+.env
+
 # OS File
 .DS_Store
 
