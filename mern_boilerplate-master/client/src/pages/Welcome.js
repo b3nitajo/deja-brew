@@ -31,6 +31,18 @@ const data = [
         milk: '3',
         coffee: '4',
         skillLevel: 'hard'
+    },
+    {
+        name: 'name 4',
+        milk: '3',
+        coffee: '4',
+        skillLevel: 'hard'
+    },
+    {
+        name: 'name 4',
+        milk: '3',
+        coffee: '4',
+        skillLevel: 'hard'
     }
 ]
 
@@ -40,21 +52,21 @@ class Welcome extends React.Component {
         skillLevel: '',
         data,
         showSkillPage: true,
-        
 
-        
+
+
     }
 
     handleSkillChange = (skillLevel) => {
-        if (skillLevel === 'easy'){
+        if (skillLevel === 'easy') {
             this.setState({
                 skillLevel: 'easy'
             })
-        } else if (skillLevel === 'medium'){
+        } else if (skillLevel === 'medium') {
             this.setState({
                 skillLevel: 'medium'
             })
-        } else if (skillLevel === 'hard'){
+        } else if (skillLevel === 'hard') {
             this.setState({
                 skillLevel: 'hard'
             })
@@ -69,9 +81,9 @@ class Welcome extends React.Component {
     }
 
 
-    resetPages = () =>{
+    resetPages = () => {
         this.setState({
-            
+
             showSkillPage: false,
         })
     }
@@ -83,7 +95,7 @@ class Welcome extends React.Component {
             <React.Fragment>
                 <Navbar />
 
-                
+
 
 
 
@@ -93,22 +105,25 @@ class Welcome extends React.Component {
                 </Container>
                 <Row>
 
-                {this.state.showSkillPage === true &&
-                    <>
-                        <button className='btn' onClick={() => this.handleSkillChange('easy')}>easy</button>
-                        <button className='btn' onClick={() => this.handleSkillChange('medium')}>medium</button>
-                        <button className='btn' onClick={() => this.handleSkillChange('hard')}>hard</button>
-                        {filterdArray.map(each => {
-                            return <Card key={each.name}
-                            name={each.name}>
-                                
+                    {this.state.showSkillPage === true &&
+                        <>
+                            <button className='btn' onClick={() => this.handleSkillChange('easy')}>easy</button>
+                            <button className='btn' onClick={() => this.handleSkillChange('medium')}>medium</button>
+                            <button className='btn' onClick={() => this.handleSkillChange('hard')}>hard</button>
+                            {filterdArray.map(each => {
+                                return <Card key={each.name}
+                                    name={each.name}
+                                    coffee={each.coffee}
+                                    milk={each.milk}
+                                    >
+
                                     {each.name}
-                                   
+
                                 </Card>
-                        })}
-                    </>
-                }
-                
+                            })}
+                        </>
+                    }
+
                 </Row>
 
 
