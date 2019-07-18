@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/index';
 // import DiffCard from './components/difficultyCard/index';
 // import Button from './components/TimerButton/index'
 import singup from "./pages/singup"
+import login from "./pages/longin"
 
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={singup} />
-          {/* <Route exact path="/books" component={Books} />
-          <Route exact path="/books/:id" component={Detail} />
+          <Route exact path="/login" component={login} />
+          {/* <Route exact path="/books/:id" component={Detail} />
           <Route component={NoMatch} /> */}
         </Switch>
       </div>

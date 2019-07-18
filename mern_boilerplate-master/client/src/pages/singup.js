@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { TextInput, Button, Icon } from "react-materialize";
+// import axios from "axios";
 
 class SignupForm extends Component {
   constructor() {
@@ -42,74 +43,22 @@ class SignupForm extends Component {
   render() {
     return (
       <div className="SignupForm">
-        <form className="form-horizontal">
-          <div className="form-group">
-            <div className="col-1 col-ml-auto">
-              <label className="form-label" htmlFor="username">
-                Name
-              </label>
-            </div>
-            <div className="col-3 col-mr-auto">
-              <input
-                className="form-input"
-                type="text"
-                id="username"
-                name="username"
-                placeholder="name"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <div className="col-1 col-ml-auto">
-              <label className="form-label" htmlFor="username">
-            Email
-              </label>
-            </div>
-            <div className="col-3 col-mr-auto">
-              <input
-                className="form-input"
-                type="text"
-                id="username"
-                name="username"
-                placeholder="email"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <div className="col-1 col-ml-auto">
-              <label className="form-label" htmlFor="password">
-                Password:{" "}
-              </label>
-            </div>
-            <div className="col-3 col-mr-auto">
-              <input
-                className="form-input"
-                placeholder="password"
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-
-          <div className="form-group ">
-            <div className="col-7" />
-
-            <button
-              className="btn btn-primary col-1 col-mr-auto"
-              onClick={this.handleSubmit}
-            >
-              Sign up
-            </button>
-          </div>
-        </form>
+        <br />
+        <TextInput icon="add" label="Name" />
+        <br />
+        <TextInput icon="email" email validate label="Email" />
+        <br />
+        <TextInput icon="lock" password label="Password" />
+        <br />
+        <Button type="submit" waves="light">
+          Signup
+          <Icon right>add</Icon>
+        </Button>
+        <Button type="submit" waves="light">
+          Login
+          <Icon right>add</Icon>
+        </Button>
+        <br />
       </div>
     );
   }
