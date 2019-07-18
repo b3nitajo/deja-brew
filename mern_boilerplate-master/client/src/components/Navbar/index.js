@@ -7,7 +7,7 @@ import 'components/Navbar/Navbar.css'
 function Nav() {
   return (
     <React.Fragment>
-      <Navbar className="navbar" brand={<a />} alignLinks="right">
+      <Navbar className="navbar"  alignLinks="right">
 <NavItem href="https://google.com">
 Login
 </NavItem>
