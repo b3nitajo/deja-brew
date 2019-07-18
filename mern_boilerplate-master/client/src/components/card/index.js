@@ -10,10 +10,17 @@ return (
 <Card
   className="blue-grey darken-1"
   textClassName="white-text"
-  title="Card title"
+  title="Recipe"
   actions={[<a />,<a />]}
 >
-I am a very simple card.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Phasellus varius odio vel diam aliquet, a eleifend lacus ullamcorper.
+Suspendisse a lectus tincidunt neque condimentum ultricies.
+Aenean scelerisque urna non turpis consequat molestie eget eget leo.
+Mauris rutrum tellus quis tellus lobortis sodales.
+Duis sed ipsum rhoncus arcu volutpat interdum id quis lorem.
+Vestibulum congue enim fermentum nibh consequat, ut interdum erat rutrum.
+Nam faucibus ligula a sapien posuere mollis.
 </Card>
 </Col>
 </Row>

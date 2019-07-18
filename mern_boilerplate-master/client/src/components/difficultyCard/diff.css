@@ -8,6 +8,11 @@ p {
     height: 200px;
     
 }
+.teal:hover{
+    box-shadow: 5px 5px 5px 5px grey;
+    transition: 0.2s;
+    cursor: pointer;
+}
 
 .teal {
     background-color: #644807 !important;

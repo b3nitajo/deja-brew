@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Col, CardPanel, Container } from 'react-materialize';
-import { Link } from 'react-router-dom';
-import 'components/difficultyCard/diff.css'
 
-function diffCard() {
+import 'components/HardCard/hard.css'
+
+function HardCard() {
     return (
         <React.Fragment>
             <Container>
@@ -11,17 +11,15 @@ function diffCard() {
                     <Col className="diffCard" m={4} s={12}>
                         <CardPanel className="teal">
                             <span className="white-text">
-                                <p>Easy</p>
+                                <p>Hard</p>
                             </span>
                         </CardPanel>
                     </Col>
-            
+                
             </Container>
         </React.Fragment>
 
     )
 }
 
-export default diffCard;
-
-
+export default HardCard;
