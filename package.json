@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://b3nitajo.github.io/deja-brew/"
   },
-  "homepage": "https://b3nitajo.github.io/deja-brew/",
+  "homepage": "https://git.heroku.com/deja-brew.git",
   "scripts": {
     "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
     "start:prod": "node server.js",
