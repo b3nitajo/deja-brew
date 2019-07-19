@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { TextInput, Button, Icon } from "react-materialize";
 // import axios from "axios";
 
-class SignupForm extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
       email: "",
       password: ""
     };
@@ -42,21 +41,19 @@ class SignupForm extends Component {
   // }
   render() {
     return (
-      <div className="SignupForm">
-        <br />
-        <TextInput icon="add" label="Name" />
+      <div className="Login">
         <br />
         <TextInput icon="email" email validate label="Email" />
         <br />
         <TextInput icon="lock" password label="Password" />
         <br />
         <Button type="submit" waves="light">
-          Signup
-          <Icon right>add</Icon>
-        </Button>
-        <Button type="submit" waves="light">
           Login
           <Icon right>add</Icon>
+        </Button>
+        <Button  type="submit" waves="light" >
+          Sign up
+          <Icon  right>add</Icon>
         </Button>
         <br />
       </div>
@@ -64,4 +61,4 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm;
+export default Login;
