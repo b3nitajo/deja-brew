@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "/Users/nathansriprom/Downloads/mern_boilerplate-master/client"
+		},
+		{
+			"path": "/Users/nathansriprom/Downloads/mern_boilerplate-master/config"
+		},
+		{
+			"path": "/Users/nathansriprom/Downloads/mern_boilerplate-master/controllers"
+		},
+		{
+			"path": "/Users/nathansriprom/Downloads/mern_boilerplate-master/models"
+		},
+		{
+			"path": "/Users/nathansriprom/Downloads/mern_boilerplate-master/routes"
+		},
+		{
+			"path": "/Users/nathansriprom/Downloads/mern_boilerplate-master/tests"
+		}
+	],
+	"settings": {}
+}
