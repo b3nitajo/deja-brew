@@ -5,7 +5,7 @@ import 'components/HardCard/hard.css'
 
 function HardCard() {
     return (
-        <React.Fragment>
+        
             <Container>
                 
                     <Col className="diffCard" m={4} s={12}>
@@ -17,8 +17,7 @@ function HardCard() {
                     </Col>
                 
             </Container>
-        </React.Fragment>
-
+       
     )
 }
 
