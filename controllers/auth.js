@@ -1,7 +1,7 @@
-// const db = require('../models');
+// // const db = require('../models');
 
-const login = async (req, res) => {
-  res.json(req.user);
-};
+// const login = async (req, res) => {
+//   res.json(req.user);
+// };
 
-exports.login = login;
+// exports.login = login;
