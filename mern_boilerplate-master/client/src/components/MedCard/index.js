@@ -5,7 +5,7 @@ import 'components/MedCard/med.css'
 
 function MedCard() {
     return (
-        <React.Fragment>
+        
             <Container>
                 
                     <Col className="diffCard" m={4} s={12}>
@@ -17,7 +17,7 @@ function MedCard() {
                     </Col>
                 
             </Container>
-        </React.Fragment>
+       
 
     )
 }
