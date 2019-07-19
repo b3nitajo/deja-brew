@@ -5,7 +5,7 @@ import 'components/difficultyCard/diff.css'
 
 function diffCard() {
     return (
-        <React.Fragment>
+        
             <Container>
                 
                     <Col className="diffCard" m={4} s={12}>
@@ -17,7 +17,7 @@ function diffCard() {
                     </Col>
             
             </Container>
-        </React.Fragment>
+      
 
     )
 }
