@@ -2,7 +2,6 @@ const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
-
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -30,10 +29,10 @@ app.use(express.json());
 
 //=========================================
 // DB Config
-const db = config.get('mongoURI');
+const dbAuth = config.get('mongoURI');
 // Connect to MongoDB
 mongoose
-  .connect(db, {
+  .connect(dbAuth, {
     useNewUrlParser: true,
     useCreateIndex: true
   }) // Adding new mongo url parser
