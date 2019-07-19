@@ -33,13 +33,13 @@ const data = [
         skillLevel: 'hard'
     },
     {
-        name: 'name 4',
+        name: 'name 5',
         milk: '3',
         coffee: '4',
         skillLevel: 'hard'
     },
     {
-        name: 'name 4',
+        name: 'name 6',
         milk: '3',
         coffee: '4',
         skillLevel: 'hard'
@@ -62,15 +62,20 @@ class Welcome extends React.Component {
             this.setState({
                 skillLevel: 'easy'
             })
+
         } else if (skillLevel === 'medium') {
             this.setState({
                 skillLevel: 'medium'
             })
+
         } else if (skillLevel === 'hard') {
             this.setState({
                 skillLevel: 'hard'
             })
+
         }
+        console.log(data);
+        console.log(this.state.skillLevel)
     }
 
     showSkillPage = () => {
@@ -83,8 +88,8 @@ class Welcome extends React.Component {
 
     resetPages = () => {
         this.setState({
+            skillLevel: '',
 
-            showSkillPage: false,
         })
     }
 
@@ -107,11 +112,18 @@ class Welcome extends React.Component {
 
                     {this.state.showSkillPage === true &&
                         <>
-                            <button className='btn' onClick={() => this.handleSkillChange('easy')}>easy</button>
-                            <button className='btn' onClick={() => this.handleSkillChange('medium')}>medium</button>
-                            <button className='btn' onClick={() => this.handleSkillChange('hard')}>hard</button>
-                            {filterdArray.map(each => {
-                                return <Card key={each.name}
+                            <div onClick={() => this.handleSkillChange('easy')}>
+                            <DiffCard />
+                            </div>
+                            <div onClick={() => this.handleSkillChange('medium')}> 
+                            <MedCard />
+                            </div>
+                            <div onClick={() => this.handleSkillChange('hard')}>
+                                <HardCard />
+                            </div>
+                            {filterdArray.map((each, i) => {
+                                return <Card 
+                                    key={i}
                                     name={each.name}
                                     coffee={each.coffee}
                                     milk={each.milk}
