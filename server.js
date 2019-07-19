@@ -20,9 +20,15 @@ if (process.env.NODE_ENV === "production") {
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-Serve up static assets (usually on heroku)
+//Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.get("*", (_, res) => {
+    res.sendFile(path.join(__dirname, "/client/build/index.html"));
+  });
+}
+
+if (process.env.NODE_ENV === "production") {
+  app.get("/", (_, res) => {
     res.sendFile(path.join(__dirname, "/client/build/index.html"));
   });
 }
