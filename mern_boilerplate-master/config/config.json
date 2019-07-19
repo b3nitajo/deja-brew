@@ -4,6 +4,7 @@
     "password": null,
     "database": "dev",
     "host": "127.0.0.1",
+    "proxy": "http://localhost:3001",
     "dialect": "mysql",
     "define": {
       "charset": "utf8",

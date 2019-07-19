@@ -25,6 +25,7 @@
     "kill": "kill-port 3001",
     "lint": "eslint --quiet .",
     "lint:fix": "eslint --fix .",
+    "proxy": "http://localhost:4000",
     "tests": "yarn kill && NODE_ENV=test nyc --reporter=html --reporter=text mocha tests/**/*.spec.js --exit",
     "test:coverage": "nyc report --reporter=text-lcov | coveralls"
   },

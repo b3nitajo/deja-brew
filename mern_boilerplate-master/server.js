@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
@@ -5,9 +6,9 @@ const cors = require('cors');
 const session = require('express-session');
 
 const db = require('./models');
-const routes = require('./routes');
 const passport = require('./config/passport');
 const corsOptions = require('./config/cors.js');
+const yelpRoutes = require("./routes/yelpapi/yelpRoutes");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -27,7 +28,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Add routes, both API and view
-app.use(routes);
+app.use("/yelpapi", yelpRoutes);
+app.use("/api", apiRoutes);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
