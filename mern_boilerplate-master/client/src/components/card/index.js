@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card } from 'react-materialize';
 
 
-function card(){
+function card(props){
 return (
 <React.Fragment>
 <Row>
@@ -10,10 +10,13 @@ return (
 <Card
   className="blue-grey darken-1"
   textClassName="white-text"
-  title="Card title"
+  title={props.name}
   actions={[<a />,<a />]}
 >
-I am a very simple card.
+<ul>
+    <li>{props.coffee}</li>
+    <li>{props.milk}</li>
+</ul>
 </Card>
 </Col>
 </Row>

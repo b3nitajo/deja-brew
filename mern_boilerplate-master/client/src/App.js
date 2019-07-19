@@ -8,6 +8,7 @@ import singup from "./components/Authenticator/singup"
 import login from "./components/Authenticator/login"
 
 
+
 function App() {
   return (
     <Router>
