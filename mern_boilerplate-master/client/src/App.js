@@ -1,24 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Welcome from './pages/Welcome'
-
-// import Navbar from './components/Navbar/index';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from './components/Navbar/index';
 // import Card from './components/card';
 // import DiffCard from './components/difficultyCard/index';
-// import Button from './components/TimerButton/index';
-// import SearchBar from './components/Searchbar/searchbar.js'
-
+// import Button from './components/TimerButton/index'
+import singup from "./components/Authenticator/singup"
+import login from "./components/Authenticator/login"
 
 
 
 function App() {
   return (
     <Router>
-      <React.Fragment>
-        <Route exact path='/' component={Welcome} />
-      </React.Fragment>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={login} />
+          <Route exact path="/signup" component={singup} />
+          {/* <Route exact path="/books/:id" component={Detail} />
+          <Route component={NoMatch} /> */}
+        </Switch>
+      </div>
     </Router>
-
   );
 }
 
