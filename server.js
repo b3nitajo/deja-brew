@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 // app.use(session({ secret: 'TBD', resave: true, saveUninitialized: true }));
 
-Serve up static assets (usually on heroku)
+// Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
@@ -42,7 +42,7 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true
   }) // Adding new mongo url parser
-  .then(() => console.log("MongoDB Connected..."))
+  .then(() => console.log("MongoDB Connected (authenticatordb)..."))
   .catch(err => console.log(err));
 
 // Use routes
