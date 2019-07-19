@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextInput, Button, Icon } from "react-materialize";
+import { TextInput, Button, Icon, Col, Row } from "react-materialize";
 // import axios from "axios";
 
 class Login extends Component {
@@ -41,6 +41,10 @@ class Login extends Component {
   // }
   render() {
     return (
+      
+      <Row>
+      <Col m={6} s={12}>
+      
       <div className="Login">
         <br />
         <TextInput icon="email" email validate label="Email" />
@@ -57,6 +61,9 @@ class Login extends Component {
         </Button>
         <br />
       </div>
+      
+      </Col>
+      </Row>
     );
   }
 }
