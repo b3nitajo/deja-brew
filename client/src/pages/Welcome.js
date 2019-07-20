@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import DiffCard from '../components/difficultyCard';
 import HardCard from '../components/HardCard';
 import MedCard from '../components/MedCard';
@@ -98,12 +97,7 @@ class Welcome extends React.Component {
         const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
         return (
             <React.Fragment>
-                <Navbar />
-
-
-
-
-
+                
                 <Container>
                     <h1>Welcome. Let's get to brewing.</h1>
                     <h5>Select what level barista you are.</h5>
