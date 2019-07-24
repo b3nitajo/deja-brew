@@ -8,7 +8,7 @@ function Nav() {
   return (
     <React.Fragment>
       <Navbar className="navbar"  alignLinks="right">
-<NavItem href="/">
+<NavItem href="/login">
 Login
 </NavItem>
 <NavItem href="/signup">

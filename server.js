@@ -6,26 +6,32 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Define middleware here
-// app.use(express.urlencoded({ extended: true }));
+ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(session({ secret: 'TBD', resave: true, saveUninitialized: true }));
 
-// Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
+//Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Add routes, both API and view
 // app.use(routes);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-// Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.get("*", (_, res) => {
-//     res.sendFile(path.join(__dirname, "/client/build/index.html"));
-//   });
-// }
+//Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.get("*", (_, res) => {
+    res.sendFile(path.join(__dirname, "/client/public/index.html"));
+  });
+}
+
+if (process.env.NODE_ENV === "production") {
+  app.get("/", (_, res) => {
+    res.sendFile(path.join(__dirname, "/client/public/index.html"));
+  });
+}
 
 //=========================================
 // DB Config
