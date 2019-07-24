@@ -13,4 +13,8 @@ router
   .put(methodsController.update)
   .delete(methodsController.remove);
 
+  router
+ .route("methods/:difficulty")
+ .get(methodsController.findByDifficulty)
+
 module.exports = router;

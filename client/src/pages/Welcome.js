@@ -1,150 +1,138 @@
-import React from 'react';
+// import React from 'react';
+import React, { Component } from 'react';
 import DiffCard from '../components/difficultyCard';
 import HardCard from '../components/HardCard';
 import MedCard from '../components/MedCard';
 import { Col, Row, Container } from 'react-materialize';
 import Card from '../components/card';
+import Axios from 'axios';
 
-const data = [
+// const data = [
 
-    {
-        name: 'name 1',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'easy'
-    },
-    {
-        name: 'name 2',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'easy'
-    },
-    {
-        name: 'name 3',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'medium'
-    },
-    {
-        name: 'name 4',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'hard'
-    },
-    {
-        name: 'name 5',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'hard'
-    },
-    {
-        name: 'name 6',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'hard'
-    }
-]
+//     {
+//         name: 'name 1',
+//         milk: '3',
+//         coffee: '4',
+//         skillLevel: 'easy'
+//     },
+//     {
+//         name: 'name 2',
+//         milk: '3',
+//         coffee: '4',
+//         skillLevel: 'easy'
+//     },
+//     {
+//         name: 'name 3',
+//         milk: '3',
+//         coffee: '4',
+//         skillLevel: 'medium'
+//     },
+//     {
+//         name: 'name 4',
+//         milk: '3',
+//         coffee: '4',
+//         skillLevel: 'hard'
+//     },
+//     {
+//         name: 'name 5',
+//         milk: '3',
+//         coffee: '4',
+//         skillLevel: 'hard'
+//     },
+//     {
+//         name: 'name 6',
+//         milk: '3',
+//         coffee: '4',
+//         skillLevel: 'hard'
+//     }
+// ]
 
-class Welcome extends React.Component {
+class Welcome extends Component {
 
     state = {
-        skillLevel: '',
-        data,
-        showSkillPage: true,
+        recipes: [],
+        name: '',
+        instructions: ''
+    };
 
 
-
-    }
-
-    handleSkillChange = (skillLevel) => {
-        if (skillLevel === 'easy') {
-            this.setState({
-                skillLevel: 'easy'
-            })
-
-        } else if (skillLevel === 'medium') {
-            this.setState({
-                skillLevel: 'medium'
-            })
-
-        } else if (skillLevel === 'hard') {
-            this.setState({
-                skillLevel: 'hard'
-            })
-
-        }
-        console.log(data);
-        console.log(this.state.skillLevel)
-    }
-
-    showSkillPage = () => {
-        this.resetPages();
-        this.setState({
-            showSkillPage: true,
-        })
+    componentDidMount() {
+        this.handleRecipeRender();
     }
 
 
-    resetPages = () => {
-        this.setState({
-            skillLevel: '',
+    handleRecipeRender = (skillLevel) => {
+        Axios.get('http://localhost:3001/api/methods/')
+            .then(res => this.setState({ recipes: res.data, }))
+            .catch(err => console.log(err));
+    };
 
-        })
-    }
+
+        // handleSkillChange = (skillLevel) => {
+        //     if (skillLevel === 'easy') {
+        //         this.setState({
+        //             skillLevel: 'easy'
+        //         })
+
+        //     } else if (skillLevel === 'medium') {
+        //         this.setState({
+        //             skillLevel: 'medium'
+        //         })
+
+        //     } else if (skillLevel === 'hard') {
+        //         this.setState({
+        //             skillLevel: 'hard'
+        //         })
+
+        //     }
+        //     console.log(data);
+        //     console.log(this.state.skillLevel)
+        // }
+
+        // showSkillPage = () => {
+        //     this.resetPages();
+        //     this.setState({
+        //         showSkillPage: true,
+        //     })
+        // }
 
 
-    render() {
-        const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
-        return (
-            <React.Fragment>
-                
-                <Container>
-                    <h1>Welcome. Let's get to brewing.</h1>
-                    <h5>Select what level barista you are.</h5>
-                </Container>
-                <Row>
+        // resetPages = () => {
+        //     this.setState({
+        //         skillLevel: '',
 
-                    {this.state.showSkillPage === true &&
-                        <>
-                            <div onClick={() => this.handleSkillChange('easy')}>
+        //     })
+        // }
+
+
+        render() {
+            // const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
+            return (
+                <>
+                    <Row>
+                        <div onClick={() => this.handleRecipeRender('easy')}>
                             <DiffCard />
-                            </div>
-                            <div onClick={() => this.handleSkillChange('medium')}> 
+                        </div>
+                        <div onClick={() => this.handleRecipeRender('medium')}>
                             <MedCard />
-                            </div>
-                            <div onClick={() => this.handleSkillChange('hard')}>
-                                <HardCard />
-                            </div>
-                            {filterdArray.map((each, i) => {
-                                return <Card 
-                                    key={i}
-                                    name={each.name}
-                                    coffee={each.coffee}
-                                    milk={each.milk}
-                                    >
-
-                                    {each.name}
-
-                                </Card>
-                            })}
-                        </>
+                        </div>
+                        <div onClick={() => this.handleRecipeRender('hard')}>
+                            <HardCard />
+                        </div>
+                    </Row>
+                    {
+                        this.state.recipes.map((recipe, i) =>
+                        <Card
+                            key={i}
+                            name={recipe.name}
+                            instructions={recipe.instructions}
+                        >
+                            {recipe.name}
+                        </Card>)
                     }
-
-                </Row>
-
-
-            </React.Fragment>
-
-
-
-        )
-    }
+                </>
+            )
+        }
 }
 
-
-
 export default Welcome;
-
-
-
-
