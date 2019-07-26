@@ -1,11 +1,20 @@
 /* eslint-disable quotes */
 const mongoose = require("mongoose");
+const config = require("config");
 const db = require("../models");
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://localhost/brewingrecipes",
-);
+//   =======================================
+//  DB Config
+const dbAuth = "mongodb://heroku_vmqs04vl:q8qdb61onpeou3poenv9qtoovu@ds255107.mlab.com:55107/heroku_vmqs04vl";
+
+// Connect to MongoDB
+mongoose
+  .connect(dbAuth, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }) // Adding new mongo url parser
+  .then(() => console.log("MongoDB Connected..."))
+  .catch(err => console.log(err));
 
 const methodSeed = [
     {
@@ -457,7 +466,7 @@ const methodSeed = [
     preparation: [
       {
         step1: " Measure out water "
-      }
+      },
       {
         step2: "Weigh out the coffee and grind it"
       }
@@ -483,9 +492,7 @@ const methodSeed = [
   }
 ];
 
-db.Method
-  //.remove({})
-  .then(() => db.Method.collection.insertMany(methodSeed))
+  db.Method.collection.insertMany(methodSeed)
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
