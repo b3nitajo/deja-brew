@@ -14,7 +14,7 @@ router
   .delete(methodsController.remove);
 
   router
- .route("methods/:difficulty")
+ .route("/methods/:difficulty")
  .get(methodsController.findByDifficulty)
 
 module.exports = router;

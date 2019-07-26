@@ -47,6 +47,11 @@ import Axios from 'axios';
 //     }
 // ]
 
+const h1Styles = {
+    textAlign: 'center',
+
+}
+
 class Welcome extends Component {
 
     state = {
@@ -56,14 +61,17 @@ class Welcome extends Component {
     };
 
 
-    componentDidMount() {
-        this.handleRecipeRender();
-    }
+    // componentDidMount() {
+    //     this.handleRecipeRender();
+    // }
 
 
-    handleRecipeRender = (skillLevel) => {
-        Axios.get('http://localhost:3001/api/methods/')
+    handleRecipeRender = (difficulty) => {
+        
+        Axios.get('http://localhost:3001/api/methods/methods/' + (difficulty || ''))
             .then(res => this.setState({ recipes: res.data, }))
+            // .then(res => console.log(res))
+
             .catch(err => console.log(err));
     };
 
@@ -104,19 +112,26 @@ class Welcome extends Component {
         //     })
         // }
 
+        
+
 
         render() {
             // const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
             return (
                 <>
+
+                <Container>
+                    <h1 style={ h1Styles }>Welcome. Lets Start Brewing.</h1>
+                    <h5 style={ h1Styles }>How difficult do you want the recipes to be?</h5>
+                </Container>
                     <Row>
-                        <div onClick={() => this.handleRecipeRender('easy')}>
+                        <div onClick={() => this.handleRecipeRender('Easy')}>
                             <DiffCard />
                         </div>
-                        <div onClick={() => this.handleRecipeRender('medium')}>
+                        <div onClick={() => this.handleRecipeRender('Medium')}>
                             <MedCard />
                         </div>
-                        <div onClick={() => this.handleRecipeRender('hard')}>
+                        <div onClick={() => this.handleRecipeRender('Hard')}>
                             <HardCard />
                         </div>
                     </Row>
@@ -124,10 +139,10 @@ class Welcome extends Component {
                         this.state.recipes.map((recipe, i) =>
                         <Card
                             key={i}
-                            name={recipe.name}
+                            method={recipe.method}
                             instructions={recipe.instructions}
                         >
-                            {recipe.name}
+                            {recipe.method}
                         </Card>)
                     }
                 </>

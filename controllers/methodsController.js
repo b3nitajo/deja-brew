@@ -36,7 +36,8 @@ module.exports = {
   },
 
   findByDifficulty: function(req, res) {
-    db.Method
+    console.log(req.params);
+     db.Method
     .find({ difficulty: req.params.difficulty })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
