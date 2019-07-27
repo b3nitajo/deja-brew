@@ -47,15 +47,15 @@ mongoose
   require('dotenv').config();
 //   =======================================
 //  DB Config for Auth
-const dbAuth = process.env.Auth_Password;
-// Connect to MongoDB
-mongoose
-  .connect(dbAuth, {
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }) // Adding new mongo url parser
-  .then(() => console.log("MongoDB Connected (authenticator)..."))
-  .catch(err => console.log(err));
+// const dbAuth = process.env.Auth_Password;
+// // Connect to MongoDB
+// mongoose
+//   .connect(dbAuth, {
+//     useNewUrlParser: true,
+//     useCreateIndex: true
+//   }) // Adding new mongo url parser
+//   .then(() => console.log("MongoDB Connected (authenticator)..."))
+//   .catch(err => console.log(err));
 
 // Start the server
 app.listen(PORT, function() {
