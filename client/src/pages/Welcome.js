@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import DiffCard from '../components/difficultyCard';
 import HardCard from '../components/HardCard';
 import MedCard from '../components/MedCard';
-import { Col, Row, Container } from 'react-materialize';
+import { Row, Container } from 'react-materialize';
 import Card from '../components/card';
 import Axios from 'axios';
 

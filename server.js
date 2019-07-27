@@ -2,8 +2,8 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const config = require("config");
-const cors = require('cors');
-const routes = require('./routes');
+// const cors = require("cors");
+const routes = require("./routes");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,9 +18,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-const corsOptions = require('./config/cors.js');
+// const corsOptions = require("./config/cors.js");
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // Add routes, both API and view
 app.use(routes);
@@ -33,19 +33,30 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "/client/public/index.html"));
   });
 }
-
-//   =======================================
 //  DB Config
-const dbAuth = config.get('mongoURI');
+const dbMethod = config.get("mongoURI");
+// Connect to MongoDB
+mongoose
+  .connect(dbMethod, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }) // Adding new mongo url parser
+  .then(() => console.log("MongoDB Connected (methoddb)..."))
+  .catch(err => console.log(err));
+
+  require('dotenv').config();
+//   =======================================
+//  DB Config for Auth
+const dbAuth = process.env.Auth_Password;
 // Connect to MongoDB
 mongoose
   .connect(dbAuth, {
     useNewUrlParser: true,
     useCreateIndex: true
   }) // Adding new mongo url parser
-  .then(() => console.log("MongoDB Connected (authenticatordb)..."))
+  .then(() => console.log("MongoDB Connected (authenticator)..."))
   .catch(err => console.log(err));
-   
+
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

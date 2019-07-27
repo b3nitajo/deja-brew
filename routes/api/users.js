@@ -5,7 +5,7 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
 
-// Matches with '/api/auth/login'
+// Matches with '/api/user'
 router.post("/", (req, res) => {
   const { name, email, password } = req.body;
 

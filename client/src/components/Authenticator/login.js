@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextInput, Button, Icon, Container, Modal } from "react-materialize";
+import { TextInput, Button, Container } from "react-materialize";
 // import axios from "axios";
 
 class Login extends Component {
