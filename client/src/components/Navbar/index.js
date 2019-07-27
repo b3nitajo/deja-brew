@@ -3,7 +3,7 @@ import { Navbar, NavItem, Modal} from 'react-materialize';
 import 'components/Navbar/Navbar.css'
 import Login from "../Authenticator/login"
 import Signup from "../Authenticator/singup"
-
+import  Logout from "../Authenticator/logout"
 
 function Nav() {
   return (
@@ -15,10 +15,10 @@ Login
 </NavItem >
 
 <NavItem href="#modal2" className="modal-trigger">
-<Modal id="modal2" header="Sign up"><Signup /></Modal>
+<Modal id="modal2" header="Register"><Signup /></Modal>
 Sign up
 </NavItem>
-
+<Logout />
 </Navbar>
 </React.Fragment>
   );
