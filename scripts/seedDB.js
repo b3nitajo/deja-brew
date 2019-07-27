@@ -1,11 +1,13 @@
 /* eslint-disable quotes */
 const mongoose = require("mongoose");
-const config = require("config");
+//const config = require("config");
 const db = require("../models");
+const dotenv = require("dotenv");
+dotenv.config();
 
 //   =======================================
 //  DB Config
-const dbAuth = "mongodb://heroku_vmqs04vl:q8qdb61onpeou3poenv9qtoovu@ds255107.mlab.com:55107/heroku_vmqs04vl";
+const dbAuth = process.env.dbAuthKEY;
 
 // Connect to MongoDB
 mongoose
