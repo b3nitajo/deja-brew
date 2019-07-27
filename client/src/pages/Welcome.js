@@ -98,7 +98,7 @@ class Welcome extends React.Component {
         const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
         return (
             <React.Fragment>
-                <Navbar />
+              
 
 
 

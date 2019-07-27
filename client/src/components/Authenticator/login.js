@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextInput, Button, Icon, Col, Row } from "react-materialize";
+import { TextInput, Button, Icon, Container, Modal } from "react-materialize";
 // import axios from "axios";
 
 class Login extends Component {
@@ -41,29 +41,23 @@ class Login extends Component {
   // }
   render() {
     return (
-      
-      <Row>
-      <Col m={6} s={12}>
-      
+    
+      <Container>
       <div className="Login">
         <br />
         <TextInput icon="email" email validate label="Email" />
         <br />
         <TextInput icon="lock" password label="Password" />
         <br />
-        <Button type="submit" waves="light">
+        <Button type="submit" waves="light" style={{margin: 10}}>
           Login
           <Icon right>add</Icon>
         </Button>
-        <Button  type="submit" waves="light" >
-          Sign up
-          <Icon  right>add</Icon>
-        </Button>
+       
         <br />
       </div>
+      </Container>
       
-      </Col>
-      </Row>
     );
   }
 }
