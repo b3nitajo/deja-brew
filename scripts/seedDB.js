@@ -5,11 +5,11 @@ const db = require("../models");
 
 //   =======================================
 //  DB Config
-const dbMethod = "mongodb://heroku_vmqs04vl:q8qdb61onpeou3poenv9qtoovu@ds255107.mlab.com:55107/heroku_vmqs04vl";
+const dbAuth = "mongodb://heroku_vmqs04vl:q8qdb61onpeou3poenv9qtoovu@ds255107.mlab.com:55107/heroku_vmqs04vl";
 
 // Connect to MongoDB
 mongoose
-  .connect(dbMethod, {
+  .connect(dbAuth, {
     useNewUrlParser: true,
     useCreateIndex: true
   }) // Adding new mongo url parser

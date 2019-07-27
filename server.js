@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const config = require("config");
-// const cors = require("cors");
+const cors = require("cors");
 const routes = require("./routes");
 
 const app = express();
@@ -18,9 +18,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// const corsOptions = require("./config/cors.js");
+const corsOptions = require("./config/cors.js");
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // Add routes, both API and view
 app.use(routes);
