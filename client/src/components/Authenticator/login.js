@@ -51,7 +51,6 @@ class Login extends Component {
         <br />
         <Button type="submit" waves="light" style={{margin: 10}}>
           Login
-          <Icon right>add</Icon>
         </Button>
        
         <br />

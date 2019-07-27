@@ -52,7 +52,6 @@ class SignupForm extends Component {
         <TextInput icon="lock" password label="Password" />
         <Button type="submit" waves="light" style={{margin: 10}}>
           Sign up
-          <Icon right>add</Icon>
         </Button>
       </div>
       </Container>

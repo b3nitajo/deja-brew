@@ -10,12 +10,12 @@ return (
 <Card
   className="blue-grey darken-1"
   textClassName="white-text"
-  title={props.name}
+  title= {props.method}
   actions={[<a />,<a />]}
 >
 <ul>
-    <li>{props.coffee}</li>
-    <li>{props.milk}</li>
+    <li>{props.grind_size}</li>
+    {props.instructions.map((intruction, index) => <li>{intruction['step' + (index + 1)]}</li>)}
 </ul>
 </Card>
 </Col>

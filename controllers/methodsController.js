@@ -33,5 +33,15 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+
+  findByDifficulty: function(req, res) {
+    console.log(req.params);
+     db.Method
+    .find({ difficulty: req.params.difficulty })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+    }
+ 
+ 
 };
