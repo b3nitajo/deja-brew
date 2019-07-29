@@ -34,28 +34,15 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 //  DB Config
-const dbMethod = config.get("mongoURI");
+const dbAuth = config.get("mongoURI");
 // Connect to MongoDB
 mongoose
-  .connect(dbMethod, {
+  .connect(dbAuth, {
     useNewUrlParser: true,
     useCreateIndex: true
   }) // Adding new mongo url parser
   .then(() => console.log("MongoDB Connected (methoddb)..."))
   .catch(err => console.log(err));
-
-  require('dotenv').config();
-//   =======================================
-//  DB Config for Auth
-// const dbAuth = process.env.Auth_Password;
-// // Connect to MongoDB
-// mongoose
-//   .connect(dbAuth, {
-//     useNewUrlParser: true,
-//     useCreateIndex: true
-//   }) // Adding new mongo url parser
-//   .then(() => console.log("MongoDB Connected (authenticator)..."))
-//   .catch(err => console.log(err));
 
 // Start the server
 app.listen(PORT, function() {
