@@ -4,7 +4,7 @@ import 'components/LoggedinNavbar/loggedNav.css'
 
 
 
-function LoggedNav() {
+function LoggedNav(props) {
     return (
         <> 
             <Navbar class="navbar" brand={<a />} alignLinks="right">
@@ -15,6 +15,7 @@ function LoggedNav() {
             <br />
             <Button 
             type="submit" waves="light"
+            onclick={props.handleSearchSubmit}
             
              >
             Submit

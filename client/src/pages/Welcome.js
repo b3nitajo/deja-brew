@@ -41,13 +41,21 @@ class Welcome extends Component {
             .catch(err => console.log(err));
     };
 
+    handleSearchSubmit = (name) => {
+        Axios.get('http://localhost:3001/api/methods/methods' + (name || ''))
+        .then(res => this.setState({ recipes: res.data }))
+        .catch( err => console.log(err))
+    };
+
 
     render() {
 
         return (
             <>
 
-                <LoggedNav></LoggedNav>
+                <LoggedNav
+                  handleSearchSubmit={this.handleSearchSubmit}  
+                />
 
                 
 
