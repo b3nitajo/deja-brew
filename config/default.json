@@ -33,6 +33,5 @@
     },
     "logging": false
   },
-  "mongoURI": "mongodb://heroku_vmqs04vl:q8qdb61onpeou3poenv9qtoovu@ds255107.mlab.com:55107/heroku_vmqs04vl", 
   "jwtSecret": "djb_myJwtSecret"
 }

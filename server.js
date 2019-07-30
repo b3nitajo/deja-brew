@@ -2,8 +2,10 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const config = require("config");
-const cors = require("cors");
-const routes = require("./routes");
+const cors = require('cors');
+const routes = require('./routes');
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -34,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 //  DB Config
-const dbAuth = config.get("mongoURI");
+const dbAuth = process.env.dbAuthKEY;
 // Connect to MongoDB
 mongoose
   .connect(dbAuth, {

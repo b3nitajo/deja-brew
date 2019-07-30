@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+node_modules
+>>>>>>> 80b4cced9cbf628be4ccaddbc4851ebbe1604bc2
 # Logs
 logs
 *.log
@@ -56,6 +60,7 @@ typings/
 
 # dotenv environment variables file
 .env
+dotenv
 
 # next.js build output
 .next
