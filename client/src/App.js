@@ -6,6 +6,7 @@ import NavbarApp from './components/NavbarApp/index';
 // import Button from './components/TimerButton/index'
 import Welcome from "./pages/Welcome";
 import Yelp from "./components/YelpSearch/Search"
+import Dashboard from "./components/Dashboard/Dashboard"
 
 import { Provider } from 'react-redux';
 import store from './store'; 
@@ -22,7 +23,7 @@ class App extends Component {
       <div>
         <NavbarApp />
         <Switch>
-          <Route exact path="/" component={Welcome} />
+          <Route exact path="/" component={Dashboard} />
           <Route exact path="/Welcome" component={Welcome} />
           <Route exact path="/yelp" component={Yelp} />
         </Switch>

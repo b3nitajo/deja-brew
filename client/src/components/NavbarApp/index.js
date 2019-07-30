@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, NavItem, Container, Modal } from "react-materialize";
+import { Navbar, NavItem, Modal } from "react-materialize";
 import "components/Navbar/Navbar.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -13,14 +13,16 @@ class AppNavbar extends Component {
   };
 
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { isAuthenticated } = this.props.auth;
 
     const authLinks = (
       <React.Fragment>
         <Navbar className="navbar" alignLinks="right">
-        
+          <NavItem href="/welcome">
+            Welcome
+          </NavItem>
           <Logout />
-        
+
         </Navbar>
       </React.Fragment>
     );
