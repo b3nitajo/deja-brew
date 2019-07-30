@@ -5,7 +5,9 @@ import MedCard from '../components/MedCard';
 import { Col, Row, Container } from 'react-materialize';
 import Card from '../components/card';
 import Axios from 'axios';
-import LoggedNav from '../components/LoggedinNavbar'
+import LoggedNav from '../components/LoggedinNavbar';
+
+
 
 
 
@@ -47,6 +49,8 @@ class Welcome extends Component {
 
                 <LoggedNav></LoggedNav>
 
+                
+
                 <Container>
                     <br></br>
                     <div style={h1Styles}>
@@ -77,6 +81,8 @@ class Welcome extends Component {
                             {recipe.method}
                         </Card>)
                 }
+
+                
             </>
         )
     }

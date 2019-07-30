@@ -41,7 +41,16 @@ module.exports = {
     .find({ difficulty: req.params.difficulty })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
+    },
+
+    findByName: function(req, res) {
+      db.Method
+      .findOne({ method: req.params.method})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
     }
- 
+
+    
+    
  
 };

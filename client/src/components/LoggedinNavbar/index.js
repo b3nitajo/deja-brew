@@ -1,17 +1,24 @@
 import React from 'react';
-import { Navbar, NavItem } from 'react-materialize';
+import { Navbar, NavItem, Button, Icon } from 'react-materialize';
 import 'components/LoggedinNavbar/loggedNav.css'
 
 
 
 function LoggedNav() {
     return (
-        <>
+        <> 
             <Navbar class="navbar" brand={<a />} alignLinks="right">
            
            
             <i class="material-icons prefix">search</i>
             <input id="icon_prefix" type="text" class="validate" alignLinks='left' />
+            <br />
+            <Button 
+            type="submit" waves="light"
+            
+             >
+            Submit
+            </Button>
          
            
           
