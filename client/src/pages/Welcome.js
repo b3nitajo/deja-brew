@@ -25,7 +25,8 @@ class Welcome extends Component {
     state = {
         recipes: [],
         name: '',
-        instructions: ''
+        instructions: '',
+        method: ''
     };
 
 
@@ -41,11 +42,18 @@ class Welcome extends Component {
             .catch(err => console.log(err));
     };
 
-    handleSearchSubmit = (name) => {
-        Axios.get('http://localhost:3001/api/methods/methods' + (name || ''))
-        .then(res => this.setState({ recipes: res.data }))
+    handleSearchSubmit = (method) => {
+        console.log('here')
+        console.log(this.state.method);
+        Axios.get('http://localhost:3001/api/methods/search/' + (this.state.method || ''))
+        .then(res => {console.log(res);
+            this.setState({ method: res.data.method })}) 
         .catch( err => console.log(err))
     };
+
+    handleInputChange = (event) => {
+        this.setState({ method: event.target.value})
+    }
 
 
     render() {
@@ -54,7 +62,9 @@ class Welcome extends Component {
             <>
 
                 <LoggedNav
-                  handleSearchSubmit={this.handleSearchSubmit}  
+                  handleSearchSubmit={this.handleSearchSubmit} 
+                  handleInputChange={this.handleInputChange}
+                   
                 />
 
                 

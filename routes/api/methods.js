@@ -18,7 +18,8 @@ router
  .get(methodsController.findByDifficulty)
 
  router
- .route("/methods/:method")
+ .route("/search/:method")
  .get(methodsController.findByName)
+ 
 
 module.exports = router;
