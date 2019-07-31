@@ -1,11 +1,11 @@
 // import React from 'react';
-import React, { Component } from 'react';
-import DiffCard from '../components/difficultyCard';
-import HardCard from '../components/HardCard';
-import MedCard from '../components/MedCard';
-import { Row, Container } from 'react-materialize';
-import Card from '../components/card';
-import Axios from 'axios';
+import React, { Component } from "react";
+import DiffCard from "../components/difficultyCard";
+import HardCard from "../components/HardCard";
+import MedCard from "../components/MedCard";
+import { Row, Container } from "react-materialize";
+import Card from "../components/card";
+import Axios from "axios";
 
 // const data = [
 
@@ -48,106 +48,114 @@ import Axios from 'axios';
 // ]
 
 const h1Styles = {
-    textAlign: 'center',
-
-}
+  textAlign: "center"
+};
 
 class Welcome extends Component {
+  state = {
+    recipes: [],
+    name: "",
+    instructions: ""
+  };
 
-    state = {
-        recipes: [],
-        name: '',
-        instructions: ''
-    };
+  // componentDidMount() {
+  //     this.handleRecipeRender();
+  // }
 
+  handleSaveRec = e => {
+    // e.preventDefault();
+    
+    let saveRec = this.state.recipes.filter(
+        recipe => recipe._id === e
+        );
+        saveRec = saveRec[0];
+    // console.log(saveRec);
+    // API.saveBook(saveRec)
+    //     .then(res => {console.log(res);
+    //     alert("Your recipe has been added!")})
+    //     .catch(err => console.log(err))
+  };
 
-    // componentDidMount() {
-    //     this.handleRecipeRender();
-    // }
+  handleRecipeRender = difficulty => {
+    Axios.get("http://localhost:3001/api/methods/methods/" + (difficulty || ""))
+      .then(res => this.setState({ recipes: res.data }))
+      // .then(res => console.log(res))
 
+      .catch(err => console.log(err));
+  };
 
-    handleRecipeRender = (difficulty) => {
+  // handleSkillChange = (skillLevel) => {
+  //     if (skillLevel === 'easy') {
+  //         this.setState({
+  //             skillLevel: 'easy'
+  //         })
+
+  //     } else if (skillLevel === 'medium') {
+  //         this.setState({
+  //             skillLevel: 'medium'
+  //         })
+
+  //     } else if (skillLevel === 'hard') {
+  //         this.setState({
+  //             skillLevel: 'hard'
+  //         })
+
+  //     }
+  //     console.log(data);
+  //     console.log(this.state.skillLevel)
+  // }
+
+  // showSkillPage = () => {
+  //     this.resetPages();
+  //     this.setState({
+  //         showSkillPage: true,
+  //     })
+  // }
+
+  // resetPages = () => {
+  //     this.setState({
+  //         skillLevel: '',
+
+  //     })
+  // }
+
+  render() {
+    // const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
+    return (
+      <>
+        <Container>
+          <h1 style={h1Styles}>Welcome. Lets Start Brewing.</h1>
+          <h5 style={h1Styles}>How difficult do you want the recipes to be?</h5>
+        </Container>
+        <Row>
+          <div onClick={() => this.handleRecipeRender("Easy")}>
+            <DiffCard />
+          </div>
+          <div onClick={() => this.handleRecipeRender("Medium")}>
+            <MedCard />
+          </div>
+          <div onClick={() => this.handleRecipeRender("Hard")}>
+            <HardCard />
+          </div>
+        </Row>
+        {this.state.recipes.map((recipe, i) => (
         
-        Axios.get('http://localhost:3001/api/methods/methods/' + (difficulty || ''))
-            .then(res => this.setState({ recipes: res.data, }))
-            // .then(res => console.log(res))
-
-            .catch(err => console.log(err));
-    };
-
-
-        // handleSkillChange = (skillLevel) => {
-        //     if (skillLevel === 'easy') {
-        //         this.setState({
-        //             skillLevel: 'easy'
-        //         })
-
-        //     } else if (skillLevel === 'medium') {
-        //         this.setState({
-        //             skillLevel: 'medium'
-        //         })
-
-        //     } else if (skillLevel === 'hard') {
-        //         this.setState({
-        //             skillLevel: 'hard'
-        //         })
-
-        //     }
-        //     console.log(data);
-        //     console.log(this.state.skillLevel)
-        // }
-
-        // showSkillPage = () => {
-        //     this.resetPages();
-        //     this.setState({
-        //         showSkillPage: true,
-        //     })
-        // }
-
-
-        // resetPages = () => {
-        //     this.setState({
-        //         skillLevel: '',
-
-        //     })
-        // }
-
+          <Card
+            key={recipe._id}
+            method={recipe.method}
+            id={recipe._id}
+            instructions={recipe.instructions}
+            handleSaveRec={this.handleSaveRec}
+          >
+            {recipe.method}
         
-
-
-        render() {
-            // const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
-            return (
-                <>
-
-                <Container>
-                    <h1 style={ h1Styles }>Welcome. Lets Start Brewing.</h1>
-                    <h5 style={ h1Styles }>How difficult do you want the recipes to be?</h5>
-                </Container>
-                    <Row>
-                        <div onClick={() => this.handleRecipeRender('Easy')}>
-                            <DiffCard />
-                        </div>
-                        <div onClick={() => this.handleRecipeRender('Medium')}>
-                            <MedCard />
-                        </div>
-                        <div onClick={() => this.handleRecipeRender('Hard')}>
-                            <HardCard />
-                        </div>
-                    </Row>
-                    {
-                        this.state.recipes.map((recipe, i) =>
-                        <Card
-                            key={i}
-                            method={recipe.method}
-                            instructions={recipe.instructions}
-                        >
-                            {recipe.method}
-                        </Card>)
-                    }
-                </>
-            )
-        }
+          </Card>
+           
+          
+        ))}
+      </>
+    );
+  }
 }
 
 export default Welcome;
