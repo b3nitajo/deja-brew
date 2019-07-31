@@ -36,12 +36,23 @@ module.exports = {
   },
 
   findByDifficulty: function(req, res) {
-    console.log(req.params);
+    console.log('here 3');
      db.Method
     .find({ difficulty: req.params.difficulty })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
+    },
+
+    findByName: function(req, res) {
+      console.log(req.params);
+      console.log('here also')
+      db.Method
+      .findOne({ method: req.params.method})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
     }
- 
+
+    
+    
  
 };
