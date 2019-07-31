@@ -6,6 +6,7 @@ import { Col, Row, Container } from 'react-materialize';
 import Card from '../components/card';
 import Axios from 'axios';
 import LoggedNav from '../components/LoggedinNavbar';
+import SearchCard from '../components/SearchCard';
 
 
 
@@ -26,7 +27,8 @@ class Welcome extends Component {
         recipes: [],
         name: '',
         instructions: '',
-        method: ''
+        method: '',
+        name: ''
     };
 
 
@@ -46,8 +48,8 @@ class Welcome extends Component {
         console.log('here')
         console.log(this.state.method);
         Axios.get('http://localhost:3001/api/methods/search/' + (this.state.method || ''))
-        .then(res => {console.log(res);
-            this.setState({ method: res.data.method })}) 
+        .then(res => {console.log(res.data.method);
+            this.setState({ name: res.data.method, instructions: res.data.instructions })}) 
         .catch( err => console.log(err))
     };
 
@@ -99,6 +101,29 @@ class Welcome extends Component {
                             {recipe.method}
                         </Card>)
                 }
+
+                {this.state.name.length ?
+                (<Card
+                
+                method={this.state.method}
+                instructions={this.state.instructions}
+
+                >
+
+                </Card>)
+                :
+                null
+                }
+               
+                {/* <SearchCard
+                key={this.state.recipes._id}
+                method={this.state.recipes.method}
+                instructions={this.state.recipes.instructions}
+                ></SearchCard> */}
+
+               
+
+               
 
                 
             </>

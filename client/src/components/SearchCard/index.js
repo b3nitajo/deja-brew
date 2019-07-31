@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card } from 'react-materialize';
 
 
-function card(props){
+function searchCard(props){
 return (
 <React.Fragment>
 <Row>
@@ -14,8 +14,8 @@ return (
   actions={[<a />,<a />]}
 >
 <ul>
-    <li>{props.grind_size}</li>
-    {props.instructions.map((intruction, index) => <li key={index}>{intruction['step' + (index + 1)]}</li>)}
+    
+    {props.instructions.map((intruction, index) => <li>{intruction['step' + (index + 1)]}</li>)}
 </ul>
 </Card>
 </Col>
@@ -24,4 +24,4 @@ return (
 )
 }
 
-export default card;
+export default searchCard;
