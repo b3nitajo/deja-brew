@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-const corsOptions = require('./config/cors.js');
+const corsOptions = require("./config/cors.js");
 
 app.use(cors(corsOptions));
 
@@ -35,8 +35,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "/client/public/index.html"));
   });
 }
-
-//   =======================================
 //  DB Config
 const dbAuth = process.env.dbAuthKEY;
 // Connect to MongoDB
@@ -45,9 +43,9 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true
   }) // Adding new mongo url parser
-  .then(() => console.log("MongoDB Connected..."))
+  .then(() => console.log("MongoDB Connected (methoddb)..."))
   .catch(err => console.log(err));
-   
+
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

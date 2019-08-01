@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, CardPanel, Container } from 'react-materialize';
+import { Col, CardPanel, Container } from 'react-materialize';
 
 import 'components/HardCard/hard.css'
 
