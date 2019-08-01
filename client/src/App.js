@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NavbarApp from './components/NavbarApp/index';
-// import Card from './components/card';
-// import DiffCard from './components/difficultyCard/index';
-// import Button from './components/TimerButton/index'
+import Navbar from './components/Navbar/index';
 import Welcome from "./pages/Welcome";
 import Yelp from "./components/YelpSearch/Search"
 import Dashboard from "./components/Dashboard/Dashboard"
@@ -21,7 +18,7 @@ class App extends Component {
     <Provider store={store}>
     <Router>
       <div>
-        <NavbarApp />
+        <Navbar />
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/Welcome" component={Welcome} />

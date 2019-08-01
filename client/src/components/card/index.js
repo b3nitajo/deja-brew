@@ -10,7 +10,7 @@ function card(props) {
             className="blue-grey darken-1"
             textClassName="white-text"
             title={props.method}
-            actions={[<a />, <a />]}
+            // actions={[<a />, <a />]}
             key={props.id}
           >
             <ul>

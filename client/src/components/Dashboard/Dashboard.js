@@ -2,22 +2,14 @@ import React, { Component } from "react";
 import { Card, Row, Col, Carousel } from "react-materialize";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Welcome from "../../pages/Welcome";
+import Tabs from "../Tabs"
+import "components/Dashboard/Dash.css"
+
 
 class Dashboard extends Component {
-  //   state = {
-  //     isOpen: false
-  //   };
-
   static propTypes = {
     auth: PropTypes.object.isRequired
   };
-
-  //   toggle = () => {
-  //     this.setState({
-  //       isOpen: !this.state.isOpen
-  //     });
-  //   };
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -28,8 +20,7 @@ class Dashboard extends Component {
           options={{ fullWidth: true, indicators: true }}
           className="white-text center"
         >
-          <div className="brown">
-            <h2>First Panel</h2>
+          <div className="welcome1">
             <h1 className="">
               <strong>
                 {user ? `Welcome, ${user.name}! Lets get to brewing.` : ""}
@@ -69,7 +60,7 @@ class Dashboard extends Component {
             </Card>
           </Col>
         </Row>
-        <Welcome />
+        <Tabs />
       </React.Fragment>
     );
 
