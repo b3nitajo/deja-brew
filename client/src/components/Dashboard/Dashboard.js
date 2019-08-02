@@ -12,6 +12,18 @@ class Dashboard extends Component {
   static propTypes = {
     auth: PropTypes.object.isRequired
   };
+  state= {
+    method:[]
+  }
+  handleSaveRec = e => {
+    // e.preventDefault();
+
+    let saveRec = this.state.recipes.filter(recipe => recipe._id === e);
+    saveRec = saveRec[0];
+    let saved = saveRec.method
+    console.log('ggg'+saved);
+    this.setState({ savedMethod: saved });
+  };
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -42,12 +54,13 @@ class Dashboard extends Component {
             <p>This is your fourth panel</p>
           </div> */}
         </Carousel>
-        <Row>
+         <Row>
           <Col l={12}>
             <Card
               className="blue-grey darken-1"
               textClassName="white-text"
               title="Saved Recipes"
+              handleSaveRec={this.handleSaveRec}
             >
               Black Coffee.
             </Card>
@@ -61,7 +74,7 @@ class Dashboard extends Component {
               Mocha.
             </Card>
           </Col> */}
-        </Row>
+        </Row> 
         <Tabs />
       </React.Fragment>
     );
