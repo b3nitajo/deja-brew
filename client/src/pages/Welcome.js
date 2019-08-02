@@ -4,8 +4,10 @@ import DiffCard from "../components/difficultyCard";
 import HardCard from "../components/HardCard";
 import MedCard from "../components/MedCard";
 import { Row, Container } from "react-materialize";
-import Card from "../components/card";
 import Axios from "axios";
+import Card from "../components/card";
+import API from "../Utils/savedApi";
+
 
 
 const h1Styles = {
@@ -17,21 +19,24 @@ class Welcome extends Component {
     recipes: [],
     name: "",
     instructions: "",
-    method: ""
+    method: "",
+    savedMethod: []
     
   };
 
-  handleSaveRec = e => {
-    // e.preventDefault();
+  // handleSaveRec = e => {
+  //   // e.preventDefault();
 
-    let saveRec = this.state.recipes.filter(recipe => recipe._id === e);
-    saveRec = saveRec[0];
-    console.log(saveRec);
-    // API.saveBook(saveRec)
-    //     .then(res => {console.log(res);
-    //     alert("Your recipe has been added!")})
-    //     .catch(err => console.log(err))
-  };
+  //   let saveRec = this.state.recipes.filter(recipe => recipe._id === e);
+  //   saveRec = saveRec[0];
+  //   let saved = saveRec.method
+  //   this.setState({ savedMethod: saved});
+  //   API.savedRecipe({
+  //     method: this.state.savedMethod
+  //   })
+  //       .then(res => res.json())
+  //       .catch(err => console.log(err))
+  // };
 
   handleRecipeRender = difficulty => {
     Axios.get("http://localhost:3001/api/methods/methods/" + (difficulty || ""))

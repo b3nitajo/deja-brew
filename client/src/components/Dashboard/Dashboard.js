@@ -4,11 +4,25 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Tabs from "../Tabs"
 import "components/Dashboard/Dash.css"
+import Logo from "components/Guest"
 
 
+// const logo = { background: "red" }
 class Dashboard extends Component {
   static propTypes = {
     auth: PropTypes.object.isRequired
+  };
+  state= {
+    method:[]
+  }
+  handleSaveRec = e => {
+    // e.preventDefault();
+
+    let saveRec = this.state.recipes.filter(recipe => recipe._id === e);
+    saveRec = saveRec[0];
+    let saved = saveRec.method
+    console.log('ggg'+saved);
+    this.setState({ savedMethod: saved });
   };
 
   render() {
@@ -27,7 +41,7 @@ class Dashboard extends Component {
               </strong>
             </h1>
           </div>
-          <div className="amber">
+          {/* <div className="amber">
             <h2>Second Panel</h2>
             <p>This is your second panel</p>
           </div>
@@ -38,19 +52,20 @@ class Dashboard extends Component {
           <div className="blue">
             <h2>Fourth Panel</h2>
             <p>This is your fourth panel</p>
-          </div>
+          </div> */}
         </Carousel>
-        <Row>
-          <Col l={6}>
+         {/* <Row>
+          <Col l={12}>
             <Card
               className="blue-grey darken-1"
               textClassName="white-text"
               title="Saved Recipes"
+              handleSaveRec={this.handleSaveRec}
             >
               Black Coffee.
             </Card>
-          </Col>
-          <Col l={6}>
+          </Col> */}
+          {/* <Col l={6}>
             <Card
               className="blue-grey darken-1"
               textClassName="white-text"
@@ -58,15 +73,16 @@ class Dashboard extends Component {
             >
               Mocha.
             </Card>
-          </Col>
-        </Row>
+          </Col> */}
+        {/* </Row>  */}
         <Tabs />
       </React.Fragment>
     );
 
     const guestLinks = (
-      <React.Fragment>
-        <p>Please login!</p>
+      <React.Fragment >
+        
+        <Logo />
       </React.Fragment>
     );
 

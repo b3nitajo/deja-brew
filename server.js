@@ -41,7 +41,7 @@ const dbAuth = process.env.dbAuthKEY;
 mongoose
   .connect(dbAuth, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
   }) // Adding new mongo url parser
   .then(() => console.log("MongoDB Connected (methoddb)..."))
   .catch(err => console.log(err));
