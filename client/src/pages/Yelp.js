@@ -25,7 +25,7 @@ class Yelp extends Component {
     yelpapi.search(query)
       .then(res =>{
         const results = res.data;
-        console.log(results);
+        console.log('test', results);
         this.setState({coffeeShops: results})
       })
       .catch(err => console.log(err))
