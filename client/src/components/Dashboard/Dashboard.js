@@ -54,7 +54,7 @@ class Dashboard extends Component {
             <p>This is your fourth panel</p>
           </div> */}
         </Carousel>
-         <Row>
+         {/* <Row>
           <Col l={12}>
             <Card
               className="blue-grey darken-1"
@@ -64,7 +64,7 @@ class Dashboard extends Component {
             >
               Black Coffee.
             </Card>
-          </Col>
+          </Col> */}
           {/* <Col l={6}>
             <Card
               className="blue-grey darken-1"
@@ -74,7 +74,7 @@ class Dashboard extends Component {
               Mocha.
             </Card>
           </Col> */}
-        </Row> 
+        {/* </Row>  */}
         <Tabs />
       </React.Fragment>
     );
