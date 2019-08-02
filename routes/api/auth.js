@@ -54,4 +54,21 @@ router.get('/user', auth, (req, res) => {
     .then(user => res.json(user));
 });
 
+// // api/auth/saved
+// router.post('/saved', (req, res) => {
+//   var savedRec = {method: "coffee"};
+//   User.findOneAndUpdate(
+//      { name: req.body.name }, 
+//      { $push: { savedrecipe: savedRec} },
+//     function (error, success) {
+//           if (error) {
+//               console.log(error);
+//           } else {
+//               console.log(success);
+//           }
+//       });
+  
+// });
+
+
 module.exports = router;

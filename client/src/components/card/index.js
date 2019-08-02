@@ -19,13 +19,13 @@ function card(props) {
                 <li>{intruction["step" + (index + 1)]}</li>
               ))}
             </ul>
-            {/* <button
+            <button
               value={props.id}
               onClick={(e) => { props.handleSaveRec(e.target.value) }}
               className="btn btn-success"
             >
               Save Recipes
-            </button> */}
+            </button>
           </Card>
         </Col>
       </Row>

@@ -22,8 +22,7 @@ const UserSchema = new Schema({
     default: Date.now
   },
   savedrecipe: [{
-    type: Schema.Types.ObjectId,
-    ref: 'savedrecipe'
+    type: Array
   }]
 });
 
