@@ -1,24 +1,159 @@
 /* eslint-disable quotes */
 const mongoose = require("mongoose");
-//const config = require("config");
 const db = require("../models");
-const dotenv = require("dotenv");
-dotenv.config();
 
-//   =======================================
-//  DB Config
-const dbAuth = process.env.dbAuthKEY;
-
-// Connect to MongoDB
-mongoose
-  .connect(dbAuth, {
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }) // Adding new mongo url parser
-  .then(() => console.log("MongoDB Connected..."))
-  .catch(err => console.log(err));
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://localhost/brewingrecipes",
+);
 
 const methodSeed = [
+  {
+    method : "French Press",
+    grind_size : "Course",
+    ground_coffee : "15g",
+    water : "350ml",
+    paper_filter : "No",
+    ending_cups : "1 cup",
+    other_equipment : [
+      {
+        kitchen_scale : 1
+      },
+      {
+        spoon : 1
+      },
+      {
+        kettle : 1
+      }
+    ],
+    preparation : [
+      {
+        step1 : "Boil the kettle"
+      },
+      {
+        step2 : "Weigh out the coffee and grind it"
+      },
+      {
+        step3 : "Place the cup/vessel onto scale"
+      },
+      {
+        step4 : "Take the filter part out of the vessel"
+      },
+      {
+        step5 : "Add the coffee into the vessel"
+      },
+      {
+        step6 : "Turn on the scale, ensuring it reads 0g"
+      },
+      {
+        step7 : "You’re all set!"
+      }
+    ],
+    instructions : [
+      {
+        step1 : "Pour 60g of water and evenly saturate the coffee"
+      },
+      {
+        step2 : "Gently stir the grounds to ensure all coffee is immersed"
+      },
+      {
+        step3 : "Wait 30 seconds for coffee to bloom"
+      },
+      {
+        step4 : "Pour the remaining 290g of water in a spiral motion"
+      },
+      {
+        step5 : "Allow the coffee to steep for 3 minutes"
+      },
+      {
+        step6 : "Gently press the filter down and serve in a warm cup"
+      }
+    ],
+    difficulty : "Easy",
+    information : "A French Press also know as a cafetiere, cafetiere a piston, Cafeteria, press pot, coffee press, or coffee plunger, is a coffee brewing device patented by Italian designer Attilio Calimani in 1929"
+  },
+  {
+    method : "AeroPress",
+    grind_size : "Fine",
+    ground_coffee : "15g",
+    water : "240ml",
+    paper_filter : "Yes",
+    ending_cups : "1 cup",
+    other_equipment : [
+      {
+        kitchen_scale : 1
+      },
+      {
+        spoon : 1
+      },
+      {
+        kettle : 1
+      }
+    ],
+    preparation : [
+      {
+        step1 : "Boil the kettle"
+      },
+      {
+        step2 : "Weigh out the coffee and grind it"
+      },
+      {
+        step3 : "Place paper filter into AeroPress cap"
+      },
+      {
+        step4 : "Screw the AeroPress cap to the AeroPress chamber"
+      },
+      {
+        step5 : "Place the cup/vessel onto scale"
+      },
+      {
+        step6 : "Place your AeroPress onto the cup"
+      },
+      {
+        step7 : "Pour a little water into the filter paper to wet it"
+      },
+      {
+        step8 : "Discard the water once it has drained through the paper filter"
+      },
+      {
+        step9 : "Add the coffee into the AeroPress chamber"
+      },
+      {
+        step10 : "Turn on the scale, ensuring it reads 0g"
+      },
+      {
+        step11 : "You’re all set!"
+      }
+    ],
+    instructions : [
+      {
+        step1 : "Pour 30g of water and evenly saturate the coffee"
+      },
+      {
+        step2 : "Stir the grounds to ensure all coffee is fully immersed"
+      },
+      {
+        step3 : "Wait 30 seconds for the coffee to bloom"
+      },
+      {
+        step4 : "Pour 210g of water in a spiral motion over the dark areas"
+      },
+      {
+        step5 : "Place the plunger on the brewer and pul up slightly to create a pressure seal"
+      },
+      {
+        step6 : "Wait for 30 seconds for the coffee to brew"
+      },
+      {
+        step7 : "Gently press down on the plunger with steady pressure"
+      },
+      {
+        step8 : "When done simply take off the bottom cap, pop the grounds and the filter"
+      }
+    ],
+    difficulty : "Medium",
+    information : "The AeroPress is the first coffee maker that combines affordability and simplicity with the ability to produce top quality coffee"
+  },
   {
     method : "Moka Pot",
     grind_size : "Extra Fine",
@@ -90,6 +225,7 @@ const methodSeed = [
     information : "The Moka Pot, also known as a macchinetta, literally: small machine, is a stove-top or electric coffee maker that produces coffee by passing boiling water pressurized by steam through ground coffee. It was patented for the first time in Italy by the inventor Luigi De Ponti for Alfonso Bialetti in 1933"
   },
   {
+   
     method : "Hario V60",
     grind_size : "Medium",
     ground_coffee : "13g",
@@ -614,7 +750,7 @@ const methodSeed = [
     preparation: [
       {
         step1: " Measure out water "
-      },
+      }
       {
         step2: "Weigh out the coffee and grind it"
       }
@@ -640,7 +776,9 @@ const methodSeed = [
   }
 ];
 
-  db.Method.collection.insertMany(methodSeed)
+db.Method
+  //.remove({})
+  .then(() => db.Method.collection.insertMany(methodSeed))
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
