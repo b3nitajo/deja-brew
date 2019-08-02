@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Tabs from "../Tabs"
 import "components/Dashboard/Dash.css"
+import Logo from "components/Guest"
 
 
+// const logo = { background: "red" }
 class Dashboard extends Component {
   static propTypes = {
     auth: PropTypes.object.isRequired
@@ -27,7 +29,7 @@ class Dashboard extends Component {
               </strong>
             </h1>
           </div>
-          <div className="amber">
+          {/* <div className="amber">
             <h2>Second Panel</h2>
             <p>This is your second panel</p>
           </div>
@@ -38,9 +40,9 @@ class Dashboard extends Component {
           <div className="blue">
             <h2>Fourth Panel</h2>
             <p>This is your fourth panel</p>
-          </div>
+          </div> */}
         </Carousel>
-        <Row>
+        {/* <Row>
           <Col l={6}>
             <Card
               className="blue-grey darken-1"
@@ -59,14 +61,15 @@ class Dashboard extends Component {
               Mocha.
             </Card>
           </Col>
-        </Row>
+        </Row> */}
         <Tabs />
       </React.Fragment>
     );
 
     const guestLinks = (
-      <React.Fragment>
-        <p>Please login!</p>
+      <React.Fragment >
+        
+        <Logo />
       </React.Fragment>
     );
 

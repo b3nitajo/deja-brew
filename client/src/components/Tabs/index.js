@@ -2,6 +2,7 @@ import React from "react";
 import { Tab, Tabs} from "react-materialize";
 import Welcom from "../../pages/Welcome"
 import Searchbox from "../Searchbar2"
+import "./style.css"
 function Tabss () {
     return (
 <Tabs className="tab-demo z-depth-1">
