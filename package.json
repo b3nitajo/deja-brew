@@ -14,7 +14,7 @@
   },
   "homepage": "https://git.heroku.com/deja-brew.git",
   "scripts": {
-    "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
+    "start": "if-env NODE_ENV=production && npm start:prod || npm start:dev",
     "start:prod": "node server.js",
     "start:dev": "yarn kill && concurrently \"nodemon\" \"yarn client\"",
     "server": "yarn kill && nodemon",
