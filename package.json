@@ -29,7 +29,7 @@
     "ignore": [
       "client/*"
     ]
-  },
+  }
   "nyc": {
     "exclude": [
       "client"
