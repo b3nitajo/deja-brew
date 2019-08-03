@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Search from "../components/YelpSearch/Search";
 import { List, ListItem } from "../components/YelpSearch/Results";
 import yelpapi from "../Utils/yelpapi";
-import { Container} from "react-materialize";
+import { Container } from "react-materialize";
 //import SelectBtn from "../components/SelectBtn";
-
+import "../pages/yelp.css";
+import Parallax from "../components/YelpSearch/Parallax"
 
 class Yelp extends Component {
   state = {
@@ -24,7 +25,7 @@ class Yelp extends Component {
   searchYelp = query => {
     yelpapi.search(query)
       .then(res =>{
-        const results = res.data;
+        const results = res.data.businesses;
         console.log('test', results);
         this.setState({coffeeShops: results})
       })
@@ -68,7 +69,8 @@ class Yelp extends Component {
   
   render() {
     return (
-      <Container>
+    
+      <Parallax>
         <h1>Search for Coffee Shop</h1>
         <div>
             <Search
@@ -84,20 +86,20 @@ class Yelp extends Component {
               {this.state.coffeeShops.map(res => (
                   <ListItem key={res.id}>
                     <strong>
-                      {res.businesses.name} 
+                      {res.name} 
                       <br></br>
                     </strong>
-                      rating: {res.businesses.rating} 
+                      rating: {res.rating} 
                       <br></br>
                     <strong>
                       Location: <nbsp></nbsp>
                     </strong>  
-                      {res.businesses.location.address1}
+                      {res.location.address1}
                       <br></br>
-                      {res.businesses.location.city}, {res.businesses.location.state}
+                      {res.location.city}, {res.location.state}
                       <br></br>
                       <br></br>
-                    <img src={res.businesses.image_url} alt="shop"></img>
+                    <img src={res.image_url} alt="shop"></img>
                     <br></br>
                   </ListItem>
                 ))}
@@ -106,8 +108,9 @@ class Yelp extends Component {
               <h3>No Results to Display</h3>
             )}
         </div>
-    </Container>
+      </Parallax>
     );
+    
   }
 }
 
