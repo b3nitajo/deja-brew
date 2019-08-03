@@ -25,11 +25,12 @@
     "lint": "eslint --quiet .",
     "lint:fix": "eslint --fix ."
     },
-    "delay": "3000",
-    "ignore": [
-      "client/*"
-    ]
-  }
+  "nodemonConfig": {
+    "events": {
+      "restart": "npm start",
+      "crash": "npm start"
+    }
+  },
   "nyc": {
     "exclude": [
       "client"
