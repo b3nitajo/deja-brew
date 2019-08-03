@@ -5,7 +5,15 @@ import yelpapi from "../Utils/yelpapi";
 import { Container } from "react-materialize";
 //import SelectBtn from "../components/SelectBtn";
 import "../pages/yelp.css";
-import Parallax from "../components/YelpSearch/Parallax"
+import MedCard from "../components/MedCard";
+
+const h1Styles = {
+  textAlign: "center",
+//  backgroundImage: "public/img/coffee_1.jpg",
+  height: "300"
+};
+
+//import ParallaxCard from "../components/YelpSearch/Parallax"
 
 class Yelp extends Component {
   state = {
@@ -69,18 +77,21 @@ class Yelp extends Component {
   
   render() {
     return (
-    
-      <Parallax>
-        <h1>Search for Coffee Shop</h1>
-        <div>
+      <>
+      <Container>
+        <h3>Search for Coffee Shop</h3>
+        <div style={h1Styles}>
             <Search
               search={this.state.search}
               handleFormSubmit={this.handleFormSubmit}
               handleInputChange={this.handleInputChange}
             />
         </div>
+      </Container>
+      <Container>
         <div>
-            <h1>Search Results</h1>
+            <h4>Search Results</h4>
+            
             {this.state.coffeeShops.length ? (
               <List>
               {this.state.coffeeShops.map(res => (
@@ -99,7 +110,7 @@ class Yelp extends Component {
                       {res.location.city}, {res.location.state}
                       <br></br>
                       <br></br>
-                    <img src={res.image_url} alt="shop"></img>
+                    <img src={res.image_url} alt="shop" height="300" width="300"></img>
                     <br></br>
                   </ListItem>
                 ))}
@@ -108,8 +119,9 @@ class Yelp extends Component {
               <h3>No Results to Display</h3>
             )}
         </div>
-      </Parallax>
-    );
+      </Container>
+      </>
+    )
     
   }
 }

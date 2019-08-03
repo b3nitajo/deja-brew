@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import { Parallax } from "react-materialize";
 //import "components/YelpSerach/Parallax.css";
 
-const image = {src=}
 class ParallaxCard extends Component{
     render(){
         return (
             <div>
-                <Parallax image={<img/>} />
+                <Parallax imageSrc="./coffee_1.jpg" />
                     <div className="section white">
                         <div className="row container">
                             <h2 className="header">Parallax</h2>

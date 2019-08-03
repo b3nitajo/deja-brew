@@ -1,6 +1,7 @@
 import React from "react";
 import { Tab, Tabs} from "react-materialize";
 import Welcom from "../../pages/Welcome"
+import Yelp from "../../pages/Yelp"
 import Searchbox from "../Searchbar2"
 import 'components/Tabs/history.css'
 function Tabss () {
@@ -434,8 +435,8 @@ function Tabss () {
 <Tab title="Recipes">
 <Welcom />
 </Tab>
-<Tab title="Find Local Coffee">
-Test 4
+<Tab title="Find Coffee Shop">
+<Yelp />
 </Tab>
 </Tabs>)
 }

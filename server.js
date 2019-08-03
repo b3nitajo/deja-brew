@@ -6,7 +6,6 @@ const cors = require('cors');
 const routes = require('./routes');
 const dotenv = require("dotenv");
 dotenv.config();
-const APIKEY = process.env.YELP_KEY;
 const app = express();
 const PORT = process.env.PORT || 3001;
 
