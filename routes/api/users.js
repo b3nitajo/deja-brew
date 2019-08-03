@@ -4,15 +4,8 @@ const bcrypt = require("bcryptjs");
 const config = require("config");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
-const saveController = require("../../controllers/SavedRec");
-// const auth = require('../../middleware/auth');
 
-router.route("/saved")
-  .get(saveController.searchSavedRecipe)
-  .post(saveController.saveNewRecipe);
-
-
-// Matches with '/api/user'
+// Matches with '/api/users'
 router.post("/", (req, res) => {
   const { name, email, password } = req.body;
 

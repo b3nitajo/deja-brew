@@ -3,6 +3,7 @@ import { Tab, Tabs} from "react-materialize";
 import Welcom from "../../pages/Welcome"
 import Yelp from "../../pages/Yelp"
 import Searchbox from "../Searchbar2"
+import "./style.css"
 import 'components/Tabs/history.css'
 function Tabss () {
     return (
@@ -429,10 +430,10 @@ function Tabss () {
 
         </div>
 </Tab>
-<Tab title="Search" active>
+<Tab title="Search" >
 <Searchbox />
 </Tab>
-<Tab title="Recipes">
+<Tab title="Recipes" active>
 <Welcom />
 </Tab>
 <Tab title="Find Coffee Shop">
