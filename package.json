@@ -29,11 +29,7 @@
     "events": {
       "restart": "npm start",
       "crash": "npm start"
-    },
-    "delay": "3000",
-    "ignore": [
-      "client/*"
-    ]
+    }
   },
   "nyc": {
     "exclude": [
