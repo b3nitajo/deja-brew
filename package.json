@@ -14,24 +14,16 @@
   },
   "homepage": "https://git.heroku.com/deja-brew.git",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm start:prod || npm start:dev",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
-    "start:dev": "yarn kill && concurrently \"nodemon\" \"npm client\"",
-    "server": "yarn kill && nodemon",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm start",
     "install": "cd client && npm install",
     "build": "cd client && npm build",
     "heroku-postbuild": "npm build",
     "kill": "kill-port 3001",
     "lint": "eslint --quiet .",
-    "lint:fix": "eslint --fix .",
-    "tests": "yarn kill && NODE_ENV=test nyc --reporter=html --reporter=text mocha tests/**/*.spec.js --exit",
-    "test:coverage": "nyc report --reporter=text-lcov | coveralls"
-  },
-  "nodemonConfig": {
-    "events": {
-      "restart": "yarn kill",
-      "crash": "yarn kill"
+    "lint:fix": "eslint --fix ."
     },
     "delay": "3000",
     "ignore": [
