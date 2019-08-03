@@ -1,6 +1,6 @@
 import React from 'react';
-import { Row, Col, CardPanel, Container } from 'react-materialize';
-import { Link } from 'react-router-dom';
+import { Col, CardPanel, Container } from 'react-materialize';
+// import { Link } from 'react-router-dom';
 import 'components/difficultyCard/diff.css'
 
 function diffCard() {

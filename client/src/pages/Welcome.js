@@ -1,150 +1,101 @@
-import React from 'react';
-import DiffCard from '../components/difficultyCard';
-import HardCard from '../components/HardCard';
-import MedCard from '../components/MedCard';
-import { Col, Row, Container } from 'react-materialize';
-import Card from '../components/card';
-
-const data = [
-
-    {
-        name: 'name 1',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'easy'
-    },
-    {
-        name: 'name 2',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'easy'
-    },
-    {
-        name: 'name 3',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'medium'
-    },
-    {
-        name: 'name 4',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'hard'
-    },
-    {
-        name: 'name 5',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'hard'
-    },
-    {
-        name: 'name 6',
-        milk: '3',
-        coffee: '4',
-        skillLevel: 'hard'
-    }
-]
-
-class Welcome extends React.Component {
-
-    state = {
-        skillLevel: '',
-        data,
-        showSkillPage: true,
+// import React from 'react';
+import React, { Component } from "react";
+import DiffCard from "../components/difficultyCard";
+import HardCard from "../components/HardCard";
+import MedCard from "../components/MedCard";
+import { Row, Container } from "react-materialize";
+import Axios from "axios";
+import Card from "../components/card";
+import API from "../Utils/savedApi";
 
 
 
-    }
+const h1Styles = {
+  textAlign: "center"
+};
 
-    handleSkillChange = (skillLevel) => {
-        if (skillLevel === 'easy') {
-            this.setState({
-                skillLevel: 'easy'
-            })
+class Welcome extends Component {
+  state = {
+    recipes: [],
+    name: "",
+    instructions: "",
+    method: "",
+    savedMethod: []
+    
+  };
 
-        } else if (skillLevel === 'medium') {
-            this.setState({
-                skillLevel: 'medium'
-            })
+  // handleSaveRec = e => {
+  //   // e.preventDefault();
 
-        } else if (skillLevel === 'hard') {
-            this.setState({
-                skillLevel: 'hard'
-            })
+  //   let saveRec = this.state.recipes.filter(recipe => recipe._id === e);
+  //   saveRec = saveRec[0];
+  //   let saved = saveRec.method
+  //   this.setState({ savedMethod: saved});
+  //   API.savedRecipe({
+  //     method: this.state.savedMethod
+  //   })
+  //       .then(res => res.json())
+  //       .catch(err => console.log(err))
+  // };
 
-        }
-        console.log(data);
-        console.log(this.state.skillLevel)
-    }
+  handleRecipeRender = difficulty => {
+    Axios.get("http://localhost:3001/api/methods/methods/" + (difficulty || ""))
+      .then(res => this.setState({ recipes: res.data }))
+      .catch(err => console.log(err));
+  };
 
-    showSkillPage = () => {
-        this.resetPages();
+  handleSearchSubmit = method => {
+    console.log("here");
+    console.log(this.state.method);
+    Axios.get(
+      "http://localhost:3001/api/methods/search/" + (this.state.method || "")
+    )
+      .then(res => {
+        console.log(res.data.method);
         this.setState({
-            showSkillPage: true,
-        })
-    }
+          name: res.data.method,
+          instructions: res.data.instructions
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
+  handleInputChange = event => {
+    this.setState({ method: event.target.value });
+  };
 
-    resetPages = () => {
-        this.setState({
-            skillLevel: '',
-
-        })
-    }
-
-
-    render() {
-        const filterdArray = this.state.data.filter(each => each.skillLevel === this.state.skillLevel)
-        return (
-            <React.Fragment>
-                
-                <Container>
-                    <h1>Welcome. Let's get to brewing.</h1>
-                    <h5>Select what level barista you are.</h5>
-                </Container>
-                <Row>
-
-                    {this.state.showSkillPage === true &&
-                        <>
-                            <div onClick={() => this.handleSkillChange('easy')}>
-                            <DiffCard />
-                            </div>
-                            <div onClick={() => this.handleSkillChange('medium')}> 
-                            <MedCard />
-                            </div>
-                            <div onClick={() => this.handleSkillChange('hard')}>
-                                <HardCard />
-                            </div>
-                            {filterdArray.map((each, i) => {
-                                return <Card 
-                                    key={i}
-                                    name={each.name}
-                                    coffee={each.coffee}
-                                    milk={each.milk}
-                                    >
-
-                                    {each.name}
-
-                                </Card>
-                            })}
-                        </>
-                    }
-
-                </Row>
-
-
-            </React.Fragment>
-
-
-
-        )
-    }
+  render() {
+    return (
+      <>
+        <Container>
+          <br />
+          <h5 style={h1Styles}>How difficult do you want the recipes to be?</h5>
+        </Container>
+        <Row>
+          <div onClick={() => this.handleRecipeRender("Easy")}>
+            <DiffCard />
+          </div>
+          <div onClick={() => this.handleRecipeRender("Medium")}>
+            <MedCard />
+          </div>
+          <div onClick={() => this.handleRecipeRender("Hard")}>
+            <HardCard />
+          </div>
+        </Row>
+        {this.state.recipes.map((recipe, i) => (
+          <Card
+            key={recipe._id}
+            method={recipe.method}
+            id={recipe._id}
+            instructions={recipe.instructions}
+            handleSaveRec={this.handleSaveRec}
+          >
+            {recipe.method}
+          </Card>
+        ))}
+      </>
+    );
+  }
 }
 
-
-
 export default Welcome;
-
-
-
-

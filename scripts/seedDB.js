@@ -1,13 +1,170 @@
 /* eslint-disable quotes */
 const mongoose = require("mongoose");
+//const config = require("config");
 const db = require("../models");
+const dotenv = require("dotenv");
+dotenv.config();
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://localhost/brewingrecipes",
-);
+//   =======================================
+//  DB Config
+const dbAuth = process.env.dbAuthKEY;
+
+// Connect to MongoDB
+mongoose
+  .connect(dbAuth, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }) // Adding new mongo url parser
+  .then(() => console.log("MongoDB Connected..."))
+  .catch(err => console.log(err));
 
 const methodSeed = [
+  {
+    method : "Moka Pot",
+    grind_size : "Extra Fine",
+    ground_coffee : "18g",
+    water : "200ml",
+    paper_filter : "No",
+    ending_cups : "1 cup",
+    other_equipment : [
+      {
+        stove : "Stove top burner"
+      },
+      {
+        spoon : 1
+      },
+      {
+        kettle : 1
+      }
+    ],
+    preparation : [
+      {
+        step1 : "Boil the kettle"
+      },
+      {
+        step2 : "Weigh out the coffee and grind it"
+      },
+      {
+        step3 : "Pour water into the bottom compartment"
+      },
+      {
+        step4 : "Add the coffee into the metal filter basket"
+      },
+      {
+        step5 : "Place the filter basket into the bottom compartment"
+      },
+      {
+        step6 : "Screw on the Moka Pot’s spouted top"
+      },
+      {
+        step7 : "Place the Moka Pot onto a stove"
+      },
+      {
+        step8 : "You’re all set!"
+      }
+    ],
+    instructions : [
+      {
+        step1 : "Fill the lower chamber with boiling water just below the valve"
+      },
+      {
+        step2 : "Insert the funnel an fill it with ground coffee"
+      },
+      {
+        step3 : "Tightly screw the upper part of the pot onto the base"
+      },
+      {
+        step4 : "Put the brewer on a stove and turn on medium heat"
+      },
+      {
+        step5 : "Wait approx. 5 to 6 minutes for the water to boil"
+      },
+      {
+        step6 : "Once the top of the pot is full, remove from the stove and pout into a cup. Enjoy!"
+      },
+      {
+        step7 : "Pour the remaining 200g of water to dilute the dose to taste"
+      }
+    ],
+    difficulty : "Medium",
+    information : "The Moka Pot, also known as a macchinetta, literally: small machine, is a stove-top or electric coffee maker that produces coffee by passing boiling water pressurized by steam through ground coffee. It was patented for the first time in Italy by the inventor Luigi De Ponti for Alfonso Bialetti in 1933"
+  },
+  {
+    method : "Hario V60",
+    grind_size : "Medium",
+    ground_coffee : "13g",
+    water : "220ml",
+    paper_filter : "Yes",
+    ending_cups : "1 cup",
+    other_equipment : [
+      {
+        kitchen_scale : 1
+      },
+      {
+        spoon : 1
+      },
+      {
+        kettle : 1
+      }
+    ],
+    preparation : [
+      {
+        step1 : "Boil the kettle"
+      },
+      {
+        step2 : "Weigh out the coffee and grind it"
+      },
+      {
+        step3 : " Place the cup/vessel onto the scale "
+      },
+      {
+        step4 : " Place the dripper on top of the cup "
+      },
+      {
+        step5 : " Open the paper filter to form a cone shape "
+      },
+      {
+        step6 : " Put the paper filter into the dripper "
+      },
+      {
+        step7 : " Pour a little water into the filter paper to wet it "
+      },
+      {
+        step8 : " Discard the water once it has drained through the paper filter "
+      },
+      {
+        step9 : " Add the coffee in to the paper filter "
+      },
+      {
+        step10 : " Turn on the scale ensuring it reads 0g"
+      },
+      {
+        step11 : " You’re all set! "
+      }
+    ],
+    instructions : [
+      {
+        step1 : " Pour 50g of water until all the grounds are evenly saturated "
+      },
+      {
+        step2 : " Wait 30 seconds for the coffee to bloom "
+      },
+      {
+        step3 : " Pour another 50g of water in a spiral rotation "
+      },
+      {
+        step4 : " Wait for the water to drain through the grounds "
+      },
+      {
+        step5 : " Pour the remaining 120g of water around the edges of the dripper "
+      },
+      {
+        step6 : " Let the water drain through and when it’s done discard the filter and serve "
+      }
+    ],
+    difficulty : "Hard",
+    information : "The Hario V60 is the first coffee maker that combines affordability and simplicity with the ability to produce top quality coffee"
+  },
     {
         method : "Bonmac Dripper",
         grind_size : "Medium",
@@ -457,7 +614,7 @@ const methodSeed = [
     preparation: [
       {
         step1: " Measure out water "
-      }
+      },
       {
         step2: "Weigh out the coffee and grind it"
       }
@@ -483,9 +640,7 @@ const methodSeed = [
   }
 ];
 
-db.Method
-  //.remove({})
-  .then(() => db.Method.collection.insertMany(methodSeed))
+  db.Method.collection.insertMany(methodSeed)
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
