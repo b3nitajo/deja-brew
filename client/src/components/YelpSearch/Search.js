@@ -14,7 +14,7 @@ class Search extends Component{
                         name="search"
                         type="text"
                         className="form-control"
-                        placeholder="Search for a Book"
+                        placeholder="Search for a Coffee Shop"
                         id="search"
                         />
                     <Button type="submit" waves="light" onClick={this.props.handleFormSubmit} className="btn btn-primary mt-3">

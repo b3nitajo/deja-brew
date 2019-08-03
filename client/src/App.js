@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './components/Navbar/index';
 import Welcome from "./pages/Welcome";
-import Yelp from "./components/YelpSearch/Search"
+import Yelp from "./pages/Yelp"
 import Dashboard from "./components/Dashboard/Dashboard"
 
 import { Provider } from 'react-redux';
@@ -22,7 +22,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/Welcome" component={Welcome} />
-          <Route exact path="/yelp" component={Yelp} />
+          <Route exact path="/Yelp" component={Yelp} />
         </Switch>
       </div>
     </Router>
