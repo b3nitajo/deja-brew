@@ -24,7 +24,7 @@
     "kill": "kill-port 3001",
     "lint": "eslint --quiet .",
     "lint:fix": "eslint --fix ."
-    },
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
