@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 node_modules
+>>>>>>> 80b4cced9cbf628be4ccaddbc4851ebbe1604bc2
 # Logs
 logs
 *.log
@@ -64,3 +67,16 @@ dotenv
 
 #locking for deployment
 package-lock.json
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules
+node_modules

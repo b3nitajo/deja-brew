@@ -1,0 +1,58 @@
+
+
+
+.history1 {
+    background-image: url('https://i.pinimg.com/originals/d4/a5/10/d4a5104e0771c6e11d24f3105fe5f472.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.grinding{
+    background-image: url('https://nationalcoffeeblog.files.wordpress.com/2016/01/grind-coffee.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.nav-wrapper{
+    background-color: rgb(89, 64, 38);
+}
+
+.tabs{
+    color: rgb(89, 64, 38);
+    background-color: rgb(187, 168, 147);
+}
+
+.tabs .tab a{
+    color: rgb(89, 64, 38);
+}
+
+.tabs .tab a:hover{
+    color: #546e7a;
+}
+
+.tabs .tab a.active{
+    color: rgb(89, 64, 38);
+}
+
+.tabs .indicator{
+    background-color: #546e7a;
+}
+.tab .indicator{
+    background-color: #546e7a;
+}
+
+p{
+    font-size: 16px;
+}
+
+h2{
+    font-size: 28px;
+}
+
+h4{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 25px;
+}

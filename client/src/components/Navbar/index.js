@@ -1,26 +1,66 @@
-import React from 'react';
-import { Navbar, NavItem } from 'react-materialize';
-import 'components/Navbar/Navbar.css'
+import React, { Component } from "react";
+import { Navbar, NavItem, Modal } from "react-materialize";
+import "components/Navbar/Navbar.css";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Login from "../Authenticator/login";
+import Signup from "../Authenticator/singup";
+import Logout from "../Authenticator/logout";
 
 
+class NavbarApp extends Component {
+  static propTypes = {
+    auth: PropTypes.object.isRequired
+  };
 
-function Nav() {
-  return (
-    <React.Fragment>
-      <Navbar className="navbar" alignLinks="right">
-        <NavItem href="/login">
+  render() {
+    const { isAuthenticated } = this.props.auth;
+
+    const authLinks = (
+      <React.Fragment>
+        <Navbar className="navbar" alignLinks="right">
+         
+          <Logout />
+
+        </Navbar>
+      </React.Fragment>
+    );
+
+    const guestLinks = (
+      <React.Fragment>
+        <Navbar className="navbar" alignLinks="right">
+        <NavItem href="#modal1" className="modal-trigger">
           Login
-</NavItem>
-        <NavItem href="/signup">
-          Sign Up
-</NavItem>
-        <NavItem href="">
-
         </NavItem>
-      </Navbar>
-    </React.Fragment>
-  );
+        <Modal id="modal1" header="Login">
+          <Login />
+        </Modal>
+
+        <NavItem href="#modal2" className="modal-trigger">
+          Sign up
+        </NavItem>
+        <Modal id="modal2" header="Register">
+          <Signup />
+        </Modal>
+        </Navbar>
+      </React.Fragment>
+    );
+
+    return (
+      <div>
+       
+          {isAuthenticated ? authLinks : guestLinks}
+       
+      </div>
+    );
+  }
 }
 
-export default Nav;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
+export default connect(
+  mapStateToProps,
+  null
+)(NavbarApp);

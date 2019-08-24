@@ -8,7 +8,7 @@ const auth = require('../../middleware/auth');
 
 // User Model
 const User = require('../../models/User');
-
+// api/auth
 router.post('/', (req, res) => {
   const { email, password } = req.body;
 
@@ -47,11 +47,28 @@ router.post('/', (req, res) => {
     })
 });
 
-
+// api/auth/user
 router.get('/user', auth, (req, res) => {
   User.findById(req.user.id)
     .select('-password')
     .then(user => res.json(user));
 });
+
+// // api/auth/saved
+// router.post('/saved', (req, res) => {
+//   var savedRec = {method: "coffee"};
+//   User.findOneAndUpdate(
+//      { name: req.body.name }, 
+//      { $push: { savedrecipe: savedRec} },
+//     function (error, success) {
+//           if (error) {
+//               console.log(error);
+//           } else {
+//               console.log(success);
+//           }
+//       });
+  
+// });
+
 
 module.exports = router;
