@@ -38,6 +38,29 @@ class Welcome extends Component {
   //       .catch(err => console.log(err))
   // };
 
+  saveRecipe = (id) => {
+    Axios.get("http://localhost:3001/api/methods/" + id)
+   // API.saved(id)
+       .then(res =>{
+         async function recipeData (){
+         const results = await res.data;
+         const savedRecipe = {
+           title: results.title,
+           author: results.author,
+           description: results.description,
+           image: results.thumbnail,
+           link: results.previewLink
+         }
+         console.log(res);
+         console.log(results);
+         console.log(savedRecipe);
+         API.saveRecipe(savedRecipe);
+         }
+         recipeData();
+       })
+       .catch(err => console.log(err));
+   };
+    
   handleRecipeRender = difficulty => {
     Axios.get("http://localhost:3001/api/methods/methods/" + (difficulty || ""))
       .then(res => this.setState({ recipes: res.data }))
@@ -88,7 +111,7 @@ class Welcome extends Component {
             method={recipe.method}
             id={recipe._id}
             instructions={recipe.instructions}
-            handleSaveRec={this.handleSaveRec}
+            handleSaveRec={this.saveRecipe(recipe._id)}
           >
             {recipe.method}
           </Card>

@@ -2,7 +2,29 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Row, Col } from "react-materialize";
 
-class SavedBooks extends Component {
+saveBook = (id) => {
+  API.save(id)
+     .then(res =>{
+       async function recipeData (){
+       const results = await res.data;
+       const savedTA = {
+         title: results.volumeInfo.title,
+         author: results.volumeInfo.authors.join(', '),
+         description: results.volumeInfo.description,
+         image: results.volumeInfo.imageLinks.thumbnail,
+         link: results.volumeInfo.previewLink
+       }
+       console.log(res);
+       console.log(results);
+       console.log(savedTA);
+       API.saveBook(savedTA);
+       }
+       recipeData();
+     })
+     .catch(err => console.log(err));
+};
+
+/*class SavedBooks extends Component {
   state = {
     books: []
   };
@@ -39,4 +61,4 @@ class SavedBooks extends Component {
     );
   }
 }
-export default SavedBooks;
+export default SavedBooks;*/

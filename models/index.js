@@ -35,5 +35,7 @@
 //module.exports = db;
 module.exports = {
   User: require("./User"),
-  Method: require("./methods")
+  Method: require("./methods"),
+  Recipe: require("./recipe")
 };
+
