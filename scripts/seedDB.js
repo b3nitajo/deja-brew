@@ -454,19 +454,19 @@ const methodSeed = [
         step2: " Stir the grounds to ensure all coffee is fully immersed "
       },
       {
-        step2: " Wait 15 seconds for the coffee to bloom "
+        step3: " Wait 15 seconds for the coffee to bloom "
       },
       {
-        step3: " Pour another 130g of water in a spiral rotation over the dark areas "
+        step4: " Pour another 130g of water in a spiral rotation over the dark areas "
       },
       {
-        step4: " Wait for the water to drain through the grounds "
+        step5: " Wait for the water to drain through the grounds "
       },
       {
-        step5: " Pour the another 160g of water around the edges of the dripper "
+        step6: " Pour the another 160g of water around the edges of the dripper "
       },
       {
-        step6: " Let the water drain through and when it’s done discard the filter and serve "
+        step7: " Let the water drain through and when it’s done discard the filter and serve "
       }
     ],
     difficulty: "Hard",
@@ -628,10 +628,10 @@ const methodSeed = [
         step2: " Pour coffee grinds into filter "
       },
       {
-        step2: " Pour water into drip machine’s reservoir "
+        step3: " Pour water into drip machine’s reservoir "
       },
       {
-        step3: " Hit the start button "
+        step4: " Hit the start button "
       },
 
     ],
