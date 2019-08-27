@@ -1,12 +1,19 @@
 import React from 'react';
+// import { url } from 'inspector';
+import './guest.css'
+import background from './deja (2).png'
+
+
+
+
 
 
 
 function guest() {
     return(
         <>
-        <div>
-            <img src="https://images.wallpaperscraft.com/image/coffee_foam_cup_140184_1600x900.jpg" alt="hangman"/>
+        <div className='logo-center'>
+            <img src={background} alt="hangman"/>
             </div>
         </>
     )
