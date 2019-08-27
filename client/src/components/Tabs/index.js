@@ -9,7 +9,8 @@ function Tabss () {
     return (
 <Tabs className="tab-demo z-depth-1">
 <Tab title="History">
-    <div className="history1">
+div class="">
+    <div className="history1" >
 <h1><u>History of Coffee</u></h1>
         
         <p>The history of coffee dates back to the 15th century, and possibly earlier

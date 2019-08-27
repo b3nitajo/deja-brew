@@ -1,11 +1,14 @@
 import React from "react";
 import { Row, Col, Card } from "react-materialize";
 
+{/* <button value={props.id} onClick={() => props.saveBook(props.id)} className="btn btn-success">
+Save Recipes
+</button> */}
 function card(props) {
   return (
     <React.Fragment>
       <Row>
-        <Col m={6} s={12}>
+        <Col s={12} m={18}>
           <Card 
             className="blue-grey darken-1"
             textClassName="white-text"
@@ -19,11 +22,7 @@ function card(props) {
                 <li>{intruction["step" + (index + 1)]}</li>
               ))}
             </ul>
-            <button
-              value={props.id}
-              onClick={(e) => { props.handleSaveRec(e.target.value) }}
-              className="btn btn-success"
-            >
+            <button  className="btn btn-success">
               Save Recipes
             </button>
           </Card>

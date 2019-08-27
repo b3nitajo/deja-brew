@@ -79,7 +79,9 @@ class Yelp extends Component {
     return (
       <>
       <Container>
-        <h3>Search for Coffee Shop</h3>
+     <h4>Enter Zip Code to Search for Local Coffee Shop</h4>
+         
+   
         <div style={h1Styles}>
             <Search
               search={this.state.search}
@@ -90,8 +92,9 @@ class Yelp extends Component {
       </Container>
       <Container>
         <div>
-            <h4>Search Results</h4>
-            
+            <br></br>
+            <br></br>
+            <div class="card-panel teal lighten-2" width="100">
             {this.state.coffeeShops.length ? (
               <List>
               {this.state.coffeeShops.map(res => (
@@ -100,7 +103,9 @@ class Yelp extends Component {
                       {res.name} 
                       <br></br>
                     </strong>
-                      rating: {res.rating} 
+                    <strong>
+                      Rating: {res.rating} 
+                    </strong>
                       <br></br>
                     <strong>
                       Location: <nbsp></nbsp>
@@ -110,7 +115,7 @@ class Yelp extends Component {
                       {res.location.city}, {res.location.state}
                       <br></br>
                       <br></br>
-                    <img src={res.image_url} alt="shop" height="300" width="300"></img>
+                    <img src={res.image_url} alt="shop" height="150" width="150"></img>
                     <br></br>
                   </ListItem>
                 ))}
@@ -118,7 +123,7 @@ class Yelp extends Component {
             ) : (
               <h3>No Results to Display</h3>
             )}
-        </div>
+        </div></div>
       </Container>
       </>
     )

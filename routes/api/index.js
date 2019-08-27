@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const auth = require('./auth');
 const users = require('./users');
-const saved = require('./savedRecipe');
+const saved = require('./saved_recipes');
 const methodRoutes = require('./methods');
 
 // router.use('/', methodRoutes);

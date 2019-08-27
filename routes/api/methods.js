@@ -21,5 +21,8 @@ router
  .route("/search/:method")
  .get(methodsController.findByName)
  
+ router
+ .route("/save/:id")
+ .get(methodsController.findById)
 
 module.exports = router;
