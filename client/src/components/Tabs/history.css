@@ -2,13 +2,23 @@
 
 
 .history1 {
-    background-image: url('https://i.pinimg.com/originals/d4/a5/10/d4a5104e0771c6e11d24f3105fe5f472.jpg');
+    background-color: burlywood;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-.grinding{
-    background-image: url('https://nationalcoffeeblog.files.wordpress.com/2016/01/grind-coffee.png');
-    background-repeat: no-repeat;
-    background-size: contain;
+.roast {
+    background-color: burlywood
+}
+
+.CATW {
+    background-color: burlywood
+}
+  
+.grind {
+    background-color: burlywood
+}
+
+.logo {
+        background-image: url(/Users/brandonquezada/Desktop/Bootcamp homework/Deja-Brew/deja-brew/client/src/components/Tabs/grind-coffee.png);
 }

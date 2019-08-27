@@ -61,8 +61,8 @@ function Tabss () {
 
         </p>
     
-   </div>
-    <div class="etimology">
+   
+    
         <h1><u>The Meaning of The Word</u></h1>
         <p>The word "coffee" entered the English language in 1582 via the Dutch koffie, borrowed
             from the Ottoman Turkish kahve, in turn borrowed from the Arabic qahwah (قهوة).
@@ -78,9 +78,9 @@ function Tabss () {
             to this analysis, the feminine form qahwah (also meaning "dark in color, dull(ing), dry, sour")
             was likely chosen to parallel the feminine khamr (خمر, "wine"), and originally meant "the dark one".
         </p>
-    </div>
+    
    
-    <div class="first cafe">
+    
         <h1><u>The First Cafe</u></h1>
         <p>
             The world’s first recorded historic coffee house, Kiva Han, was reputedly opened in
@@ -92,6 +92,7 @@ function Tabss () {
     
 </Tab>
 <Tab title="Roast Types">
+    <div className="roast">
 <h2><u><b>Coffee Roast Type Guide</b></u></h2>
         <h3>Roasting is a heat process that turns coffee into the fragrant, dark brown beans we know and love.</h3>
 
@@ -215,9 +216,10 @@ function Tabss () {
             <li>Italian</li>
             <li>French</li>
         </ul>
-
+        </div>
 </Tab>
 <Tab title="Coffee Around The World">
+    <div className="CATW">
 <h2><u>North America & The Caribbean</u></h2>
 
     <h4>United States - Hawaii</h4>
@@ -399,9 +401,10 @@ function Tabss () {
       mild
       body with good balance, Vietnamese coffee is frequently used for blending.
     </p>
+    </div>
 </Tab>
 <Tab title="Grinding Coffee">
-<div className="grinding">
+<div className="grind">
 <h2><u><b>Coffee Grind Time</b></u></h2>
 
         <p>
@@ -424,9 +427,10 @@ function Tabss () {
             espresso should
             be very fine). If this seems like a lot to consider before your first cup of coffee, don’t worry.
         </p>
-       
-
         </div>
+    
+
+        
 </Tab>
 <Tab title="Search" active>
 <Searchbox />
