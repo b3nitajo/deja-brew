@@ -29,8 +29,7 @@ This app is used to **_bring everything coffee to your finger tips._** Users can
 #### How to get started?
 Visit the link below and create a profile. After submitting profile form, enter credentials upon login sreen.
 
-https://deja-brew.herokuapp.com/
-[Deja Brew](https://deja-brew.herokuapp.com)
+[Join Deja Brew](https://deja-brew.herokuapp.com)
 
 #### Contributers
 Name | Role
