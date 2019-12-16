@@ -19,7 +19,7 @@ This app is used to **_bring everything coffee to your finger tips._** Users can
 * User ability to create and manage own coffee recipes.
 * Online Coffe Shop where users can purchase coffee products.
 
-#### Technologies Used
+#### Frameworks Used
 * Materalize.css
 * React.js
 * Node.js
