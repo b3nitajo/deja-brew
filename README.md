@@ -1,2 +1,38 @@
 ![GitHub Logo](/images/readMe_header.png)
-Format: ![Alt Text](url)
+
+# Welcome to Deja Brew
+## Bringing Everything Coffee to your finger tips
+
+#### What is Deja Brew?
+Deja Brew is a web application targeting coffee lovers. 
+
+#### How is it used?
+This app is used to *bring everything coffee to your finger tips.* Users can learn more about the history of coffee, view coffee brewing methods, search for local coffee shop ratings and much more!
+
+#### Special Features
+* User profile required for full access.
+* User can search coffee recipe database by preparation difficulty.
+* Intergration with Yelp API allows users to search for nearby coffee shops and view ratings, price range and location. 
+
+#### Icebox Features
+* User profile dashboard.
+* User ability to create and manage own coffee recipes.
+* Online Coffe Shop where users can purchase coffee products.
+
+#### Technologies Used
+* Materalize.css
+* React.js
+* Node.js
+* MongoDB
+* Express.js
+
+#### How to get started?
+Visit the link below and create a profile. After submitting profile form, enter credentials upon login sreen.
+
+#### Contributers
+Name | Role
+------------ | -------------
+Benita | Maintainer, Full Stack Developer
+Brandon | Database Administrator
+Caitlyn | Full Stack Developer
+Nathan | Full Stack Developer
