@@ -31,10 +31,8 @@ Visit the link below and create a profile. After submitting profile form, enter 
 
 [Join Deja Brew](https://deja-brew.herokuapp.com)
 
-#### Contributers
-Name | Role
------------- | -------------
-Benita | Maintainer, Full Stack Developer
-Brandon | DBA, Frontend Developer
-Caitlyn | Full Stack Developer
-Nathan | Full Stack Developer
+#### Contributors
+**Benita**, _Maintainer, Full Stack Developer_
+**Brandon**, _DBA, Frontend Developer_
+**Caitlyn**, _Full Stack Developer_
+**Nathan**, _Full Stack Developer_
