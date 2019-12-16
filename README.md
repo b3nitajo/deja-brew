@@ -32,7 +32,7 @@ Visit the link below and create a profile. After submitting profile form, enter 
 [Join Deja Brew](https://deja-brew.herokuapp.com)
 
 #### Contributors
-**Benita**, _Maintainer, Full Stack Developer_
-**Brandon**, _DBA, Frontend Developer_
-**Caitlyn**, _Full Stack Developer_
-**Nathan**, _Full Stack Developer_
+* **Benita**: _Maintainer, Full Stack Developer_
+* **Brandon**: _DBA, Frontend Developer_
+* **Caitlyn**: _Full Stack Developer_
+* **Nathan**: _Full Stack Developer_
