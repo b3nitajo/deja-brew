@@ -7,11 +7,11 @@
 Deja Brew is a web application targeting coffee lovers. 
 
 #### How is it used?
-This app is used to *bring everything coffee to your finger tips.* Users can learn more about the history of coffee, view coffee brewing methods, search for local coffee shop ratings and much more!
+This app is used to **_bring everything coffee to your finger tips._** Users can learn more about the history of coffee, view coffee brewing methods, search for local coffee shop ratings and much more!
 
 #### Special Features
 * User profile required for full access.
-* User can search coffee recipe database by preparation difficulty.
+* User can search brewing methods database by preparation difficulty.
 * Intergration with Yelp API allows users to search for nearby coffee shops and view ratings, price range and location. 
 
 #### Icebox Features
@@ -29,10 +29,13 @@ This app is used to *bring everything coffee to your finger tips.* Users can lea
 #### How to get started?
 Visit the link below and create a profile. After submitting profile form, enter credentials upon login sreen.
 
+https://deja-brew.herokuapp.com/ - automatic!
+[Deja Brew](https://deja-brew.herokuapp.com)
+
 #### Contributers
 Name | Role
 ------------ | -------------
 Benita | Maintainer, Full Stack Developer
-Brandon | Database Administrator
+Brandon | DBA, Frontend Developer
 Caitlyn | Full Stack Developer
 Nathan | Full Stack Developer
