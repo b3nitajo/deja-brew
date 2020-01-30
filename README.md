@@ -4,7 +4,7 @@
 ## Bringing Everything Coffee to your finger tips
 
 #### What is Deja Brew?
-Deja Brew is a web application targeting coffee lovers. 
+Deja Brew is a full stack web application targeting coffee lovers. 
 
 #### How is it used?
 This app is used to **_bring everything coffee to your finger tips._** Users can learn more about the history of coffee, view coffee brewing methods, search for local coffee shop ratings and much more!
